@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <Button
+                style="@style/btnStyle"
+                android:text="进入流式布局界面"
+                android:onClick="toFlowActivity"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:text="进入购物车界面"
+                android:onClick="toShoppingActivity"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:text="进入权限申请页面"
+                android:onClick="toPermissionActivity"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:text="进入悬浮窗口页面"
+                android:onClick="toFloatActivity"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:text="进入自定义View测试页面"
+                android:onClick="toCustomView"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:text="白天黑夜模式切换"
+                android:onClick="switchDayOrNight"
+                />
+            <Button
+                style="@style/btnStyle"
+                android:onClick="circleMenuLayout"
+                android:text="圆形菜单"
+                />
+
+            <com.cloudoc.share.yybpg.customview.widget.SwitchView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                style="@style/btnStyle"
+                android:text="自动化UI测试页面"
+                android:onClick="UiAutoTest"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:text="preference测试"
+                android:textAllCaps="false"
+                android:onClick="preferenceOnClick"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:text="CoordniatorLayoutce测试"
+                android:textAllCaps="false"
+                android:onClick="CoordniatorLayoutOnClick"
+                />
+k
+            <Button
+                style="@style/btnStyle"
+                android:text="打飞机游戏界面"
+                android:textAllCaps="false"
+                android:onClick="dafeijiActivity"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:text="图案密码页面"
+                android:onClick="gotoPasswordActivity"
+                />
+            <Button
+                style="@style/btnStyle"
+                android:text="刮刮卡效果"
+                android:onClick="gotoScratchActivity"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toCanvasActivity"
+                android:text="跳转至Canvas页面"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toPathActivity"
+                android:text="跳转至Path页面"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toFingerAutActivity"
+                android:text="跳转至指纹认证页面" />
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@mipmap/bg"
+    android:orientation="vertical"
+    tools:context=".activity.CircleMenuLayoutActivity">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="利用Adapter 重构后的menuLayout"
+        android:onClick="clickMenuLayout"
+        />
+
+    <com.cloudoc.share.yybpg.customview.widget.CircleMenuLayout
+        android:id="@+id/id_menu_layout"
+        android:layout_width="match_parent"
+        android:background="@mipmap/circle_bg3"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@id/id_circle_menu_item_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="104.0dip"
+                android:layout_height="104.0dip"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/turnplate_center_unlogin" />
+
+            <ImageView
+                android:layout_width="116.0dip"
+                android:layout_height="116.0dip"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/turnplate_mask_unlogin_normal" />
+        </RelativeLayout>
+
+    </com.cloudoc.share.yybpg.customview.widget.CircleMenuLayout>
+</LinearLayout>

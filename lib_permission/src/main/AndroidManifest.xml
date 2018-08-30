@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cloudoc.share.yybpg.lib_permission" >
+
+    <application >
+        <activity android:name=".PermissionActivity"
+            />
+    </application>
+</manifest>

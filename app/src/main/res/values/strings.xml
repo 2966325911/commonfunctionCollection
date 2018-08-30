@@ -1,0 +1,250 @@
+<resources>
+    <string name="app_name">CustomView</string>
+    <string name="jsonData">{
+        "attributes": [
+        {
+            "tabID": 0,
+            "tabName": "颜色",
+            "attributesItem": [
+                "白",
+                "蓝",
+                "黑"
+            ]
+        },
+        {
+            "tabID": 1,
+            "tabName": "型号",
+            "attributesItem": [
+                "S",
+                "X",
+                "XL",
+                "XXL"
+            ]
+        },
+        {
+            "tabID": 2,
+            "tabName": "衣服",
+            "attributesItem": [
+                "羽绒服",
+                "T恤",
+                "棉毛衫"
+            ]
+        },
+        {
+            "tabID": 3,
+            "tabName": "大小",
+            "attributesItem": [
+                "大",
+                "中",
+                "小"
+            ]
+        }
+    ],
+    "stockGoods": [
+        {
+            "goodsID": 1,
+            "goodsCount": 4;
+            "goodsInfo": [
+                {
+                    "tabID": 0,
+                    "tabName": "颜色",
+                    "tabValue": "白"
+                },
+                {
+                    "tabID": 1,
+                    "tabName": "型号",
+                    "tabValue": "X"
+                },
+                {
+                    "tabID": 2,
+                    "tabName": "衣服",
+                    "tabValue": "羽绒服"
+                },
+                {
+                    "tabID": 3,
+                    "tabName": "大小",
+                    "tabValue": "中"
+                }
+            ]
+        },
+        {
+            "goodsID": 2,
+            "goodsCount": 3;
+            "goodsInfo": [
+                {
+                    "tabID": 0,
+                    "tabName": "颜色",
+                    "tabValue": "白"
+                },
+                {
+                    "tabID": 1,
+                    "tabName": "型号",
+                    "tabValue": "XL"
+                },
+                {
+                    "tabID": 2,
+                    "tabName": "衣服",
+                    "tabValue": "羽绒服"
+                },
+                {
+                    "tabID": 3,
+                    "tabName": "大小",
+                    "tabValue": "大"
+                }
+            ]
+        },
+        {
+            "goodsID": 3,
+            "goodsCount": 2;
+            "goodsInfo": [
+                {
+                    "tabID": 0,
+                    "tabName": "颜色",
+                    "tabValue": "白"
+                },
+                {
+                    "tabID": 1,
+                    "tabName": "型号",
+                    "tabValue": "XXL"
+                },
+                {
+                    "tabID": 2,
+                    "tabName": "衣服",
+                    "tabValue": "棉毛衫"
+                },
+                {
+                    "tabID": 3,
+                    "tabName": "大小",
+                    "tabValue": "小"
+                }
+            ]
+        },
+        {
+            "goodsID": 4,
+            "goodsCount": 1;
+            "goodsInfo": [
+                {
+                    "tabID": 0,
+                    "tabName": "颜色",
+                    "tabValue": "蓝"
+                },
+                {
+                    "tabID": 1,
+                    "tabName": "型号",
+                    "tabValue": "S"
+                },
+                {
+                    "tabID": 2,
+                    "tabName": "衣服",
+                    "tabValue": "棉毛衫"
+                },
+                {
+                    "tabID": 3,
+                    "tabName": "大小",
+                    "tabValue": "小"
+                }
+            ]
+        },
+        {
+            "goodsID": 5,
+            "goodsCount": 0;
+            "goodsInfo": [
+                {
+                    "tabID": 0,
+                    "tabName": "颜色",
+                    "tabValue": "黑"
+                },
+                {
+                    "tabID": 1,
+                    "tabName": "型号",
+                    "tabValue": "XXL"
+                },
+                {
+                    "tabID": 2,
+                    "tabName": "衣服",
+                    "tabValue": "T恤"
+                },
+                {
+                    "tabID": 3,
+                    "tabName": "大小",
+                    "tabValue": "大"
+                }
+            ]
+        },
+        {
+            "goodsID": 6,
+            "goodsCount": 2;
+            "goodsInfo": [
+                {
+                    "tabID": 0,
+                    "tabName": "颜色",
+                    "tabValue": "白"
+                },
+                {
+                    "tabID": 1,
+                    "tabName": "型号",
+                    "tabValue": "X"
+                },
+                {
+                    "tabID": 2,
+                    "tabName": "衣服",
+                    "tabValue": "T恤"
+                },
+                {
+                    "tabID": 3,
+                    "tabName": "大小",
+                    "tabValue": "中"
+                }
+            ]
+        }
+    ]
+}</string>
+
+    <string name="long_text">基础层： 基础层很容易理解，其中包含的是一些基
+        础库以及对基础库的封装，比如常用的图片加载，网络请求，数据存储操作等等，
+        其他模块或者组件都可以引用同一套基础库，这样不但只需要开发一套代码，
+        还解耦了基础功能和业务功能的耦合，在基础库变更时更加容易操作。
+组件层： 基础层往上是组件层，组件层就包含一些简单的功能组件，比如视频，支付等等
+应用层： 组件层往上是应用层，这里为了简单，只添加了一个 APP ，APP 就相当于我们的模块，
+        一个具体的业务模块会按需引用不同的组件，最终实现业务功能，这里如果又多个业务模块，就可以各自按需引用组件，最后将各个模块统筹输出 APP。</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="test_USB_change">USB 切换</string>
+    <string name="usb_default_value">001</string>
+
+    <string-array name="USBChange">
+        <item>AP</item>
+        <item>CP</item>
+        <item>CP Update</item>
+        <item>EncryptionCard</item>
+    </string-array>
+    <string-array name="USBChange_value">
+        <item>001</item>
+        <item>002</item>
+        <item>003</item>
+        <item>004</item>
+    </string-array>
+
+    <string-array name="days">
+        <item>周一</item>
+        <item>周二</item>
+        <item>周三</item>
+        <item>周四</item>
+        <item>周五</item>
+        <item>周六</item>
+        <item>周日</item>
+    </string-array>
+
+    <string-array name="day_value">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>32</item>
+        <item>64</item>
+    </string-array>
+
+</resources>

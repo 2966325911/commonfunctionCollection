@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   android:background="@android:color/transparent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/window_bg"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="48dp"
+            android:src="@mipmap/close_window" />
+        <LinearLayout
+            android:id="@+id/lv_notice"
+            android:layout_toRightOf="@id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="网络连接失败，请按"
+                android:textColor="#FF0000"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_toRightOf="@id/lv_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置网络"
+                android:gravity="center"
+                android:background="@mipmap/setting_neteork"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

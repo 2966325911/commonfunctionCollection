@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="设置"
+    >
+    <PreferenceCategory
+        android:title="Preference测试设置"
+        >
+        <Preference
+            android:key="advice"
+            android:title="意见反馈"
+            />
+        <Preference
+            android:key="common_question"
+            android:title="常见问题"/>
+        <Preference
+            android:key="check_version"
+            android:title="检查版本"/>
+        <SwitchPreference
+            android:key="switchskin"
+            android:summary="应用内切换"
+            android:title="夜间模式"/>
+        <CheckBoxPreference
+            android:key="checkbox"
+            android:title="CheckBox测试"
+            />
+        <RingtonePreference
+            android:key="ringtonePre"
+            android:title="RingtonePre"
+            />
+        <ListPreference
+            android:defaultValue="@string/usb_default_value"
+            android:dialogTitle="@string/test_USB_change"
+            android:entries="@array/USBChange"
+            android:entryValues="@array/USBChange_value"
+            android:key="key_amt3_USB_change"
+            android:title="@string/test_USB_change" />
+
+        <MultiSelectListPreference
+            android:key="multiPre"
+            android:entries="@array/days"
+            android:entryValues="@array/day_value"
+            android:title="重复"
+            android:summary="无"
+            android:dialogTitle="星期选择"
+            />
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
