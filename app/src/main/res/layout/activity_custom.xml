@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.CustomActivity">
+    tools:context="com.kangengine.customview.activity.CustomActivity">
 
-    <!--<com.cloudoc.share.yybpg.customview.widget.CircleView-->
+    <!--<CircleView-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content" />-->
-    <com.cloudoc.share.yybpg.customview.widget.SwitchView2
+    <com.kangengine.customview.widget.SwitchView2
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>

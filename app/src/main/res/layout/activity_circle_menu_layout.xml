@@ -7,7 +7,7 @@
     android:gravity="center"
     android:background="@mipmap/bg"
     android:orientation="vertical"
-    tools:context=".activity.CircleMenuLayoutActivity">
+    tools:context="com.kangengine.customview.activity.CircleMenuLayoutActivity">
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         android:onClick="clickMenuLayout"
         />
 
-    <com.cloudoc.share.yybpg.customview.widget.CircleMenuLayout
+    <com.kangengine.customview.widget.CircleMenuLayout
         android:id="@+id/id_menu_layout"
         android:layout_width="match_parent"
         android:background="@mipmap/circle_bg3"
@@ -38,5 +38,5 @@
                 android:background="@mipmap/turnplate_mask_unlogin_normal" />
         </RelativeLayout>
 
-    </com.cloudoc.share.yybpg.customview.widget.CircleMenuLayout>
+    </com.kangengine.customview.widget.CircleMenuLayout>
 </LinearLayout>

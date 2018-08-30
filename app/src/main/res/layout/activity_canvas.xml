@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.CanvasActivity">
-    <com.cloudoc.share.yybpg.customview.widget.Canvastest
+    tools:context="com.kangengine.customview.activity.CanvasActivity">
+    <com.kangengine.customview.widget.Canvastest
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

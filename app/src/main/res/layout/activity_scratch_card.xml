@@ -8,11 +8,11 @@
    >
 
 
-    <com.cloudoc.share.yybpg.customview.widget.XfermodeView
+    <com.kangengine.customview.widget.XfermodeView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.cloudoc.share.yybpg.customview.widget.RoundImageView
+    <com.kangengine.customview.widget.RoundImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

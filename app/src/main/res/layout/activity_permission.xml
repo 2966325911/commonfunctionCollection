@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.PermissionActivity">
+    tools:context="com.kangengine.customview.ui.PermissionActivity">
 
     <Button
         android:id="@+id/btn1"

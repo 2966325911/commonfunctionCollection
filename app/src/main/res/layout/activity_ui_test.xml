@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.cloudoc.share.yybpg.customview.widget.DragViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
+<com.kangengine.customview.widget.DragViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#00ff00"
-    tools:context=".activity.UiTestActivity">
+    tools:context="com.kangengine.customview.activity.UiTestActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,7 +33,7 @@
         <!--android:visibility="gone"-->
         <!--android:id="@+id/text"-->
         <!--/>-->
-    <!--<com.cloudoc.share.yybpg.customview.widget.SpannableFoldTextView-->
+    <!--<SpannableFoldTextView-->
         <!--android:id="@+id/foldtextview"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
@@ -45,4 +45,4 @@
         <!--app:tipColor="@color/colorPrimary"-->
         <!--app:tipGravity="0"-->
         <!--/>-->
-</com.cloudoc.share.yybpg.customview.widget.DragViewGroup>
+</com.kangengine.customview.widget.DragViewGroup>
