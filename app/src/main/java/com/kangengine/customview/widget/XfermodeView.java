@@ -37,6 +37,13 @@ public class XfermodeView extends View {
         init();
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        setMeasuredDimension(mBgBitmap.getWidth(),mBgBitmap.getHeight());
+    }
+
     private void init() {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);

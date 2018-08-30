@@ -32,7 +32,11 @@ public class RoundImageView extends View {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public RoundImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init();
+    }
 
+    private void init() {
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.bf);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -47,7 +51,7 @@ public class RoundImageView extends View {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private Bitmap getmBitmap(){
-        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.bf);
+
         mOut = Bitmap.createBitmap(mBitmap.getWidth(),mBitmap.getHeight(),
                 Bitmap.Config.ARGB_8888);
         mPaint = new Paint();
@@ -57,9 +61,17 @@ public class RoundImageView extends View {
                 80,80,mPaint);
 
         mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+
         canvas.drawBitmap(mBitmap,0,0,mPaint);
         return mOut;
     }
 
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        setMeasuredDimension(mBitmap.getWidth(),mBitmap.getHeight());
+    }
 
 }
