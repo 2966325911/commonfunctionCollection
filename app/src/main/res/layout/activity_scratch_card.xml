@@ -16,6 +16,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
+
+            <com.kangengine.customview.widget.PorterDuffView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <com.kangengine.customview.widget.XfermodeView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -39,10 +44,13 @@
             <com.kangengine.customview.widget.TearOffGirlsClotheView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+            <com.kangengine.customview.widget.LayerSimpleView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
     </ScrollView>
-
 
 
 

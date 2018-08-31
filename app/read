@@ -57,3 +57,36 @@ View 绘制 流程最终调用的是ViewRootImpl中的performTraversals 方法�
 在view post中才可以拿到view的宽高信息，在onCreate或者其他生命周期中也不一定拿到，调用view的post方法可拿到是
 因为在view绘制performTraversals中将其利用post方法加入到消息队列中，到执行改方法时候，view的测量流程已经完成，
 
+
+Object的wait和notify/notify是与对象监视器配合完成线程间的等待/通知机制，而Condition与Lock配合完成等待通知机制，
+前者是java底层级别的，后者是语言级别的，具有更高的可控制性和扩展性。
+java 线程Lock锁使用Condition实现线程的等待（await）与通知（signal）
+Conditioin与重入锁时是通过Lock中的lock.newCondition方法产生一个与当前重入锁绑定的Condition实例
+即：  Lock lock = new ReentrantLock(); Condition condition = lock.newCondition();
+public interface Condition{
+    //使当前线程加入await（）等待队列中，并释放锁，当其他线程调用signal()会重新请求锁，
+    //与Object.await()类似
+    void await() throws InterruptedException;
+    //调用该方法的前提是，当前线程已经成功获得与该条件对象绑定的重入锁，否则调用该方法时会抛出IllegalMonitorStateException。
+    //调用该方法后，结束等待的唯一方法是其它线程调用该条件对象的signal()或signalALL()方法。等待过程中如果当前线程被中断，该方法仍然会继续等待，同时保留该线程的中断状态。
+    void awaitUninterruptibly();
+
+    //若指定时间内有其它线程中断该线程，则抛出InterruptedException并清除当前线程的打断状态；若指定时间内未收到通知，则返回0或负数。
+     long awaitNanos(long nanosTimeout) throws InterruptedException;
+
+     //与await()基本一致，唯一不同点在于，指定时间之内没有收到signal()或signalALL()信号或者线程中断时该方法会返回false;其它情况返回true。
+     boolean await(long time, TimeUnit unit) throws InterruptedException;
+
+     //唤醒一个在 await()等待队列中的线程。与Object.notify()相似
+      void signal();
+
+      //唤醒 await()等待队列中所有的线程。与object.notifyAll()相似
+      void signalAll();
+
+}
+
+
+Canvas 有layer层级的概念，缺省情况只有一个layer，可以用saveLayerXXX，Restore等方法创建层级，按照栈方式管理，创建一个新的Layer到
+栈中，用saveLayer，saveLayerAlpha，从栈中推出一个Layer，可以使用restore，restoreToCount，当Layer入栈时，后续DrawXXX操作都发生
+到这个Layer上，而Layer退栈时，就会把本层绘制的图像绘制到上层或是Canvas中
+通过saveLayer方法新建一层级，再通过restoreToCount方法将新层还原回画布，这样就不会对原有的层进行干扰。
