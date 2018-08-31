@@ -12,7 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.cloudoc.share.yybpg.customview.R;
+
+import com.kangengine.customview.R;
 
 import butterknife.ButterKnife;
 import me.ele.uetool.UETool;

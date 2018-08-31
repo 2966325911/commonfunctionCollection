@@ -17,7 +17,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
+
 
 /**
  * @author : Vic

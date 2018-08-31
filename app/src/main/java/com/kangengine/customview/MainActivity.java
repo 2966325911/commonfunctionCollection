@@ -13,10 +13,10 @@ import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 
 
-import com.cloudoc.share.yybpg.customview.R;
 import com.kangengine.customview.activity.CircleMenuLayoutActivity;
 import com.kangengine.customview.activity.LoginActivity;
 import com.kangengine.customview.activity.UiTestActivity;
+import com.kangengine.customview.activity.XfermodesActivity;
 import com.kangengine.customview.ui.FlowLayoutActivity;
 import com.kangengine.customview.ui.PermissionActivity;
 import com.kangengine.customview.ui.ShoppingActvity;
@@ -174,5 +174,9 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
      */
     public void toFingerAutActivity(View view) {
         toNextActivity(LoginActivity.class,null);
+    }
+
+    public void toXfermodesActivity(View view) {
+        toNextActivity(XfermodesActivity.class,null);
     }
 }

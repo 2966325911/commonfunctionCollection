@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
 import com.kangengine.customview.bean.MenuItem;
 
 import java.util.List;

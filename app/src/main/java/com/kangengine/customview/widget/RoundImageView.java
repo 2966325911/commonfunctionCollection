@@ -13,7 +13,8 @@ import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
+
 
 /**
  * @author : Vic

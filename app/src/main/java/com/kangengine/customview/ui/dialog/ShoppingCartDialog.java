@@ -15,7 +15,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
 import com.kangengine.customview.adapter.BaseAdapter;
 import com.kangengine.customview.adapter.BaseViewHolder;
 import com.kangengine.customview.bean.ShopGoodsBean;

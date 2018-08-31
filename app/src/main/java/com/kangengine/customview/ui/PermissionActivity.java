@@ -11,9 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.cloudoc.share.yybpg.customview.R;
 import com.cloudoc.share.yybpg.lib_permission.annotation.PermissionCanceled;
 import com.cloudoc.share.yybpg.lib_permission.annotation.PermissionDenied;
+import com.kangengine.customview.R;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 

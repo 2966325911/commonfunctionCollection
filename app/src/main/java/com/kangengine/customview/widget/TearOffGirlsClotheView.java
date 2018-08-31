@@ -13,7 +13,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
+
 
 /**
  * @author : Vic
@@ -51,7 +52,7 @@ public class TearOffGirlsClotheView extends View implements View.OnTouchListener
         mPaint.setStrokeWidth(45);
 
         sBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.a914);
-        bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.b914);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.b914);
         dBitmap = Bitmap.createBitmap(sBitmap.getWidth(),sBitmap.getHeight(),Bitmap.Config.ARGB_8888);
         bitCanvas = new Canvas(dBitmap);
         xfermode = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);

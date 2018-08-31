@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.kangengine.customview.BaseActivity;
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
 import com.kangengine.customview.widget.LockPatternView;
 
 

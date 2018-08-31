@@ -11,7 +11,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
+
 
 /**
  * @author : Vic

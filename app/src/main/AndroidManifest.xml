@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cloudoc.share.yybpg.customview">
+    package="com.kangengine.customview">
 
-    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -121,14 +121,17 @@
             android:parentActivityName="com.kangengine.customview.MainActivity" />
         <activity
             android:name="com.kangengine.customview.activity.ScratchCardActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name="com.kangengine.customview.activity.CanvasActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name="com.kangengine.customview.activity.PathAcitivty"
             android:parentActivityName="com.kangengine.customview.MainActivity" />
-        <activity android:name="com.kangengine.customview.activity.LoginActivity"></activity>
+        <activity android:name="com.kangengine.customview.activity.LoginActivity" />
+        <activity android:name="com.kangengine.customview.activity.XfermodesActivity"
+            android:parentActivityName=".MainActivity"
+            />
     </application>
 
 </manifest>

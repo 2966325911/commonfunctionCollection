@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
 import com.kangengine.customview.widget.FlowLayout;
 
 import java.util.Random;

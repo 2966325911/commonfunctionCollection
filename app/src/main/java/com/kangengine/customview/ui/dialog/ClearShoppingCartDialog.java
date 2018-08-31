@@ -2,7 +2,7 @@ package com.kangengine.customview.ui.dialog;
 
 import android.view.View;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
 import com.kangengine.customview.widget.BaseDialog;
 
 import butterknife.OnClick;

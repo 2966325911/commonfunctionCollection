@@ -116,8 +116,10 @@ k
                 android:onClick="toFingerAutActivity"
                 android:text="跳转至指纹认证页面" />
 
-
-
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toXfermodesActivity"
+                android:text="跳转至Xfermode页面" />
 
 
         </LinearLayout>

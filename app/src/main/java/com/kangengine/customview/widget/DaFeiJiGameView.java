@@ -18,7 +18,8 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.cloudoc.share.yybpg.customview.R;
+
+import com.kangengine.customview.R;
 
 import java.util.ArrayList;
 import java.util.List;

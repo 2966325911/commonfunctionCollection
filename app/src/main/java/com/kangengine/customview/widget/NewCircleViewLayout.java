@@ -6,11 +6,10 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
+
 
 /**
  * @author : Vic

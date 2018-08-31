@@ -8,13 +8,9 @@ import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
-import android.view.View;
 import android.widget.Toast;
 
-import com.cloudoc.share.yybpg.customview.R;
-
-import java.io.File;
-import java.io.FileDescriptor;
+import com.kangengine.customview.R;
 
 
 /**

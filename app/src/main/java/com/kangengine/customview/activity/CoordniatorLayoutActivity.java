@@ -13,7 +13,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
+
 
 public class CoordniatorLayoutActivity extends AppCompatActivity implements View.OnTouchListener {
     private static final String TAG = CoordniatorLayoutActivity.class.getSimpleName();

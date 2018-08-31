@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
 import com.kangengine.customview.widget.NewCircleViewLayout;
 import com.kangengine.customview.adapter.CircleMenuAdapter;
 import com.kangengine.customview.bean.MenuItem;

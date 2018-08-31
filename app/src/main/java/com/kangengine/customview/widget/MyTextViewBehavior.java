@@ -5,8 +5,8 @@ import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.kangengine.customview.R;
 import com.kangengine.customview.activity.CoordniatorLayoutActivity;
-import com.cloudoc.share.yybpg.customview.R;
 
 /**
  * @author : Vic

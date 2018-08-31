@@ -3,7 +3,8 @@ package com.kangengine.customview.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.cloudoc.share.yybpg.customview.R;
+import com.kangengine.customview.R;
+
 
 public class CustomActivity extends AppCompatActivity {
 

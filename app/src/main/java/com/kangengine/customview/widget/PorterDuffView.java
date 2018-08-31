@@ -19,6 +19,12 @@ import android.view.View;
  * clear  Src Dst SrcOver DstOver SrcIn DstIn SrcOut DstOut SrcATop
  * DstAtop Xor Darken Lighten Multiply Screen
  * 详细参考 https://www.jianshu.com/p/3feaa8b347f2
+ * 如果想让PorterDuffXferMode按照预期Demo（或者效果图）的效果图像实现，必须满足以下条件：
+1、关闭硬件加速。（ 开启硬件离屏缓存），否则会出现黑色
+2、只有两个bitmap的时候，才可以生效，两个bitmap大小尽量一样。
+3、背景色为透明色。
+4、如果两个bitmap位置不完全一样，可能也是预期效果，只不过你看到的效果和你自己脑补的预期效果不一致。
+ *
  */
 public class PorterDuffView extends View {
 
@@ -49,7 +55,9 @@ public class PorterDuffView extends View {
         //- 1.解决xfermode黑色问题。
         //- 2.效率比关闭硬件加速高3倍以上
         setLayerType(LAYER_TYPE_HARDWARE,null);
+        canvas.drawARGB(0, 0, 0, 0);
         canvas.drawBitmap(src,100,100,mPaint);
+
 //        //白底
 //        canvas.drawColor(Color.BLACK);
 //        int canvasWidth= canvas.getWidth();
@@ -86,7 +94,7 @@ public class PorterDuffView extends View {
 
         canvas.drawBitmap(dst,0,0,mPaint);
 //        //最后将画笔去除Xfermode
-//        mPaint.setXfermode(null);
+        mPaint.setXfermode(null);
     }
 
     @Override
