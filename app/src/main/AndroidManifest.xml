@@ -57,14 +57,14 @@
     <uses-permission android:name="dianxin.permission.ACCESS_LAUNCHER_DATA" />
 
     <application
-        android:name="com.kangengine.customview.AppContextAppliction"
+        android:name=".AppContextAppliction"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.kangengine.customview.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -72,64 +72,70 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.kangengine.customview.ui.FlowLayoutActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity"
+            android:name=".ui.FlowLayoutActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/TranslucentTheme" />
         <activity
-            android:name="com.kangengine.customview.ui.ShoppingActvity"
-            android:parentActivityName="com.kangengine.customview.MainActivity"
+            android:name=".ui.ShoppingActvity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/TranslucentTheme" />
         <activity
-            android:name="com.kangengine.customview.ui.PermissionActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
+            android:name=".ui.PermissionActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.kangengine.customview.activity.FloatActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
+            android:name=".activity.FloatActivity"
+            android:parentActivityName=".MainActivity" />
 
-        <service android:name="com.kangengine.customview.service.FloatButtonService" />
-        <service android:name="com.kangengine.customview.service.MediaPlayService" />
+        <service android:name=".service.FloatButtonService" />
+        <service android:name=".service.MediaPlayService" />
 
         <activity
-            android:name="com.kangengine.customview.activity.CustomActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
+            android:name=".activity.CustomActivity"
+            android:parentActivityName=".MainActivity" />
 
         <service
-            android:name="com.kangengine.customview.service.ImageSettingService"
+            android:name=".service.ImageSettingService"
             android:enabled="true"
             android:exported="true" />
 
         <activity
-            android:name="com.kangengine.customview.activity.CircleMenuLayoutActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
-        <activity
-            android:name="com.kangengine.customview.activity.NewMenuLayoutActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
-        <activity
-            android:name="com.kangengine.customview.activity.UiTestActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
-        <activity
-            android:name="com.kangengine.customview.activity.PreferenceActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
-        <activity
-            android:name="com.kangengine.customview.activity.CoordniatorLayoutActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
-        <activity
-            android:name="com.kangengine.customview.activity.DaFeiJiActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
-        <activity
-            android:name="com.kangengine.customview.activity.PicPasswordActivity"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
-        <activity
-            android:name="com.kangengine.customview.activity.ScratchCardActivity"
+            android:name=".activity.CircleMenuLayoutActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.kangengine.customview.activity.CanvasActivity"
+            android:name=".activity.NewMenuLayoutActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.kangengine.customview.activity.PathAcitivty"
-            android:parentActivityName="com.kangengine.customview.MainActivity" />
-        <activity android:name="com.kangengine.customview.activity.LoginActivity" />
-        <activity android:name="com.kangengine.customview.activity.XfermodesActivity"
+            android:name=".activity.UiTestActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.PreferenceActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.CoordniatorLayoutActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.DaFeiJiActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.PicPasswordActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.ScratchCardActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.CanvasActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.PathAcitivty"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity
+            android:name=".activity.XfermodesActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.ShaderActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".activity.SurfaceViewActivity"
             android:parentActivityName=".MainActivity"
             />
     </application>

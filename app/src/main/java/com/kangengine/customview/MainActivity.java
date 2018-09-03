@@ -15,6 +15,8 @@ import android.view.View;
 
 import com.kangengine.customview.activity.CircleMenuLayoutActivity;
 import com.kangengine.customview.activity.LoginActivity;
+import com.kangengine.customview.activity.ShaderActivity;
+import com.kangengine.customview.activity.SurfaceViewActivity;
 import com.kangengine.customview.activity.UiTestActivity;
 import com.kangengine.customview.activity.XfermodesActivity;
 import com.kangengine.customview.ui.FlowLayoutActivity;
@@ -178,5 +180,13 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
 
     public void toXfermodesActivity(View view) {
         toNextActivity(XfermodesActivity.class,null);
+    }
+
+    public void toShaderActivity(View view) {
+        toNextActivity(ShaderActivity.class,null);
+    }
+
+    public void toSurfaceViewActivity(View view){
+        toNextActivity(SurfaceViewActivity.class,null);
     }
 }

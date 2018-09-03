@@ -70,21 +70,18 @@
             <Button
                 style="@style/btnStyle"
                 android:text="preference测试"
-                android:textAllCaps="false"
                 android:onClick="preferenceOnClick"
                 />
 
             <Button
                 style="@style/btnStyle"
                 android:text="CoordniatorLayoutce测试"
-                android:textAllCaps="false"
                 android:onClick="CoordniatorLayoutOnClick"
                 />
 k
             <Button
                 style="@style/btnStyle"
                 android:text="打飞机游戏界面"
-                android:textAllCaps="false"
                 android:onClick="dafeijiActivity"
                 />
 
@@ -120,6 +117,16 @@ k
                 style="@style/btnStyle"
                 android:onClick="toXfermodesActivity"
                 android:text="跳转至Xfermode页面" />
+
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toShaderActivity"
+                android:text="跳转至Shader页面" />
+
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toSurfaceViewActivity"
+                android:text="跳转至SurfaceView页面" />
 
 
         </LinearLayout>
