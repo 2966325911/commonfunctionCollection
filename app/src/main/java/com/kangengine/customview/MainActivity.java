@@ -13,11 +13,13 @@ import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 
 
+import com.kangengine.customview.activity.BtnOkAnimationActivity;
 import com.kangengine.customview.activity.CircleMenuLayoutActivity;
 import com.kangengine.customview.activity.LoginActivity;
 import com.kangengine.customview.activity.ShaderActivity;
 import com.kangengine.customview.activity.SurfaceViewActivity;
 import com.kangengine.customview.activity.UiTestActivity;
+import com.kangengine.customview.activity.VideoRecordActivity;
 import com.kangengine.customview.activity.XfermodesActivity;
 import com.kangengine.customview.ui.FlowLayoutActivity;
 import com.kangengine.customview.ui.PermissionActivity;
@@ -188,5 +190,13 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
 
     public void toSurfaceViewActivity(View view){
         toNextActivity(SurfaceViewActivity.class,null);
+    }
+
+    public void toAnimationActivity(View view) {
+        toNextActivity(BtnOkAnimationActivity.class,null);
+    }
+
+    public void toVideoRecordActivity(View view) {
+        toNextActivity(VideoRecordActivity.class,null);
     }
 }

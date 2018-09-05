@@ -128,6 +128,15 @@ k
                 android:onClick="toSurfaceViewActivity"
                 android:text="跳转至SurfaceView页面" />
 
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toAnimationActivity"
+                android:text="跳转至动画OK的ButtonActivity页面" />
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toVideoRecordActivity"
+                android:text="跳转视频录制页面" />
+
 
         </LinearLayout>
     </ScrollView>

@@ -1,0 +1,55 @@
+package com.kangengine.customview.activity;
+
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.MediaController;
+
+import com.kangengine.customview.R;
+import com.kangengine.customview.widget.MyVideoView;
+
+public class PlayVideoActivity extends AppCompatActivity {
+
+    private MyVideoView videoView;
+    private String path;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_play_video);
+        videoView = (MyVideoView) findViewById(R.id.video);
+        Button playBtn = (Button) findViewById(R.id.play_video);
+        Intent intent = getIntent();
+        path = intent.getStringExtra("path");
+        playBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                play();
+            }
+        });
+    }
+    private void play() {
+        Uri uri = Uri.parse(path);
+        videoView.setVideoURI(uri);
+        MediaController mMediaController = new MediaController(this);
+        videoView.setMediaController(mMediaController);
+        videoView.start();
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.start();
+                mp.setLooping(true);
+            }
+        });
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+
+            }
+        });
+    }
+}

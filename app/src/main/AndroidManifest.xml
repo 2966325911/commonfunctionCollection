@@ -56,6 +56,10 @@
     <uses-permission android:name="telecom.mdesk.permission.WRITE_SETTINGS" />
     <uses-permission android:name="dianxin.permission.ACCESS_LAUNCHER_DATA" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
     <application
         android:name=".AppContextAppliction"
         android:allowBackup="true"
@@ -135,9 +139,16 @@
         <activity
             android:name=".activity.ShaderActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".activity.SurfaceViewActivity"
+        <activity
+            android:name=".activity.SurfaceViewActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".activity.BtnOkAnimationActivity"
             android:parentActivityName=".MainActivity"
             />
+        <activity android:name=".activity.VideoRecordActivity"
+            android:parentActivityName=".MainActivity"
+            />
+        <activity android:name=".activity.PlayVideoActivity"/>
     </application>
 
 </manifest>

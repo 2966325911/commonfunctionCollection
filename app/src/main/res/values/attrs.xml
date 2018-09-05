@@ -10,4 +10,11 @@
         <attr name="showTipAfterExpand" format="boolean" />
         <attr name="isSetParentClick" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="RecordVideo">
+        <attr name="video_width" format="integer"/>
+        <attr name="video_height" format="integer"/>
+        <attr name="open_camera" format="boolean"/>
+        <attr name="timeLength" format="integer"/>
+    </declare-styleable>
 </resources>

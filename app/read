@@ -90,3 +90,11 @@ Canvas 有layer层级的概念，缺省情况只有一个layer，可以用saveLa
 栈中，用saveLayer，saveLayerAlpha，从栈中推出一个Layer，可以使用restore，restoreToCount，当Layer入栈时，后续DrawXXX操作都发生
 到这个Layer上，而Layer退栈时，就会把本层绘制的图像绘制到上层或是Canvas中
 通过saveLayer方法新建一层级，再通过restoreToCount方法将新层还原回画布，这样就不会对原有的层进行干扰。
+
+Glide的图片加载网络请求最终是在HttpUrlFetcher类中发生的，用的是HttpUrlConnection获取数据流并通过DataFetcher接口中的DataCallback
+的onDataReady方法返回出去，最终在DecodeJob中的decodeFromRetrievedData()中待资源加载完成后回调，
+在decodeFromRetrievedData（）中调用decodeFromData()方法进行缩放，转换等操作，返回Resource对象,
+当resource成功返回即(resource！= null)调用notifyEncodeAndRelease通过DecodeJob加载后对数据后做转换，
+缓存等操作，回到EngineJob中，通过onResourceReady（）中的MAIN_THREAD_HANDLER.obtainMessage(MSG_COMPLETE, this).sendToTarget();
+将其切换到主线程中，调用handleResultOnMainThread(),通过EngineJobListenerde onEngineJobComplete()方法添加到缓存,
+最终调用DrawableImageViewTarget的ssetResource()方法将图片设置到ImageView上
