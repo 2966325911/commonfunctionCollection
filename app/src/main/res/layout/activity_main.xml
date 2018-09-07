@@ -137,6 +137,10 @@ k
                 android:onClick="toVideoRecordActivity"
                 android:text="跳转视频录制页面" />
 
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toCountdownActivity"
+                android:text="跳转圆形倒计时页面" />
 
         </LinearLayout>
     </ScrollView>

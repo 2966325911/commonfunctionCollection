@@ -13,4 +13,7 @@
     <color name="normal">#EEEEEE</color>
     <color name="select">#FF5C5C</color>
     <color name="empty">#FAF9F9</color>
+
+    <color name="circle_color">#BF9370</color>
+    <color name="out_circle_color">#7abf9370</color>
 </resources>

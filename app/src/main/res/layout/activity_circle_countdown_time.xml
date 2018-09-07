@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+
+    <com.kangengine.customview.widget.CircleCountDownView
+        android:id="@+id/countdown"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:text="60"
+        app:text_size="@dimen/tv_countdown_time"
+        app:progress_color="@color/circle_color"
+        app:bg_color="@color/circle_color"
+        app:progress_hint_color="@color/out_circle_color"/>
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startCountdown"
+        android:text="开启倒计时"
+        />
+
+    <Button
+        android:id="@+id/end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="endCountdown"
+        android:text="结束倒计时"
+        />
+
+
+
+</LinearLayout>

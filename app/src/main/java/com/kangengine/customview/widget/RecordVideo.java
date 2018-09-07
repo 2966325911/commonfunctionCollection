@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.kangengine.customview.R;
+import com.kangengine.customview.util.DateUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -206,7 +207,8 @@ public class RecordVideo extends LinearLayout implements MediaRecorder.OnErrorLi
         // 创建文件
         try {
             //mp4格式
-            mRecordFile = File.createTempFile("record", ".mp4", vecordDir);
+            mRecordFile = File.createTempFile("video_"+ DateUtil.stamp2DayTime1(System.currentTimeMillis()),
+                    ".mp4", vecordDir);
             Log.i("TAG", mRecordFile.getAbsolutePath());
         } catch (IOException e) {
         }

@@ -55,7 +55,6 @@
     <uses-permission android:name="telecom.mdesk.permission.READ_SETTINGS" />
     <uses-permission android:name="telecom.mdesk.permission.WRITE_SETTINGS" />
     <uses-permission android:name="dianxin.permission.ACCESS_LAUNCHER_DATA" />
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
@@ -142,13 +141,14 @@
         <activity
             android:name=".activity.SurfaceViewActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".activity.BtnOkAnimationActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".activity.VideoRecordActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".activity.PlayVideoActivity"/>
+        <activity
+            android:name=".activity.BtnOkAnimationActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.VideoRecordActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".activity.PlayVideoActivity" />
+        <activity android:name=".activity.CircleCountdownTimeActivity"></activity>
     </application>
 
 </manifest>

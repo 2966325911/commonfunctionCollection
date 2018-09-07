@@ -14,6 +14,7 @@ import android.view.View;
 
 
 import com.kangengine.customview.activity.BtnOkAnimationActivity;
+import com.kangengine.customview.activity.CircleCountdownTimeActivity;
 import com.kangengine.customview.activity.CircleMenuLayoutActivity;
 import com.kangengine.customview.activity.LoginActivity;
 import com.kangengine.customview.activity.ShaderActivity;
@@ -198,5 +199,9 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
 
     public void toVideoRecordActivity(View view) {
         toNextActivity(VideoRecordActivity.class,null);
+    }
+
+    public void toCountdownActivity(View view) {
+        toNextActivity(CircleCountdownTimeActivity.class,null);
     }
 }
