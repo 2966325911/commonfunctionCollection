@@ -4,34 +4,82 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
+    android:orientation="vertical">
 
-    <com.kangengine.customview.widget.CircleCountDownView
-        android:id="@+id/countdown"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:text="60"
-        app:text_size="@dimen/tv_countdown_time"
-        app:progress_color="@color/circle_color"
-        app:bg_color="@color/circle_color"
-        app:progress_hint_color="@color/out_circle_color"/>
-    <Button
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="startCountdown"
-        android:text="开启倒计时"
-        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="endCountdown"
-        android:text="结束倒计时"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <com.kangengine.customview.widget.CircleCountDownView
+                android:id="@+id/countdown"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:bg_color="@color/circle_color"
+                app:progress_color="@color/circle_color"
+                app:progress_hint_color="@color/out_circle_color"
+                app:text="60"
+                app:text_size="@dimen/tv_countdown_time" />
+
+            <Button
+                android:id="@+id/start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="startCountdown"
+                android:text="开启倒计时" />
+
+            <Button
+                android:id="@+id/end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="endCountdown"
+                android:text="结束倒计时" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView style="@style/imgStyle" />
+
+                <!--tint着色器 tintMode-->
+                <ImageView
+                    style="@style/imgStyle"
+                    android:tint="@android:color/holo_blue_bright" />
+
+                <ImageView
+                    style="@style/imgStyle"
+                    android:tint="@android:color/holo_blue_bright"
+                    android:tintMode="add" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_rect"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:elevation="1dp"
+                android:text="rect"
+
+                />
+
+
+            <TextView
+                android:id="@+id/tv_circle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="circle"
+                android:elevation="1dp" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </LinearLayout>

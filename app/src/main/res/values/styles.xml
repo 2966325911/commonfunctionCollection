@@ -23,4 +23,12 @@
         <item name="android:textAllCaps">false</item>
 
     </style>
+
+    <style name="imgStyle">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:elevation">6dp</item>
+        <item name="android:src">@mipmap/ic_launcher</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
 </resources>

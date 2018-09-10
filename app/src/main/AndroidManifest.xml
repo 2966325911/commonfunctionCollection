@@ -148,7 +148,13 @@
             android:name=".activity.VideoRecordActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".activity.PlayVideoActivity" />
-        <activity android:name=".activity.CircleCountdownTimeActivity"></activity>
+        <activity
+            android:name=".activity.CircleCountdownTimeActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.TranslateAnimationActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".activity.TransitionsActivity"></activity>
     </application>
 
 </manifest>

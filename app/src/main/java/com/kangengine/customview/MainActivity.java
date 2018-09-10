@@ -19,6 +19,7 @@ import com.kangengine.customview.activity.CircleMenuLayoutActivity;
 import com.kangengine.customview.activity.LoginActivity;
 import com.kangengine.customview.activity.ShaderActivity;
 import com.kangengine.customview.activity.SurfaceViewActivity;
+import com.kangengine.customview.activity.TranslateAnimationActivity;
 import com.kangengine.customview.activity.UiTestActivity;
 import com.kangengine.customview.activity.VideoRecordActivity;
 import com.kangengine.customview.activity.XfermodesActivity;
@@ -203,5 +204,9 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
 
     public void toCountdownActivity(View view) {
         toNextActivity(CircleCountdownTimeActivity.class,null);
+    }
+
+    public void toTranslationActivity(View view) {
+        toNextActivity(TranslateAnimationActivity.class,null);
     }
 }

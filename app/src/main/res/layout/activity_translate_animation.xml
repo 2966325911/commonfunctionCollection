@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kangengine.customview.activity.TranslateAnimationActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="explode"
+            android:text="explode"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="slide"
+            android:text="slide"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="fade"
+            android:text="fade"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="share"
+            android:transitionName="share"
+            android:text="share"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            />
+
+        <Button
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:transitionName="fab"
+            android:id="@+id/fab_button"
+            android:elevation="6dp"
+            android:background="@drawable/ripple_round"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@android:color/holo_blue_bright"
+            >
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="有界波纹"
+                />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:text="无界波纹"
+                />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/ripple"
+                />
+
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/oval"
+            android:background="@drawable/oval"
+            />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/rect"
+            android:background="@drawable/rect"
+            />
+
+    </LinearLayout>
+
+
+</ScrollView>
