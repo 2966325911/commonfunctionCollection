@@ -14,8 +14,11 @@ import com.alibaba.sdk.android.oss.common.OSSLog;
 import com.alibaba.sdk.android.oss.common.auth.OSSCredentialProvider;
 import com.alibaba.sdk.android.oss.common.auth.OSSStsTokenCredentialProvider;
 import com.alibaba.sdk.android.oss.internal.OSSAsyncTask;
+import com.alibaba.sdk.android.oss.model.ObjectMetadata;
 import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
+
+import java.util.HashMap;
 
 /**
  * @author : Vic
@@ -69,6 +72,17 @@ public class AliYunOssUploadOrDownFileConfig {
             public void onProgress(PutObjectRequest request, long currentSize, long totalSize) {
                 Log.d(TAG, "currentSize: " + currentSize + " totalSize: " + totalSize);
             }
+        });
+        ObjectMetadata metadata = new ObjectMetadata();
+        metadata.setContentType("application/octet-stream");
+        put.setMetadata(metadata);
+
+        put.setCallbackParam(new HashMap<String, String>(){
+            {
+                put("callbackUrl", "http://abc.com/callback.php");
+                put("callbackBody", "filename=${object}&size=${size}&photo=${x:photo}&system=${x:system}");
+            }
+
         });
 
         task = oss.asyncPutObject(put, new OSSCompletedCallback<PutObjectRequest, PutObjectResult>() {

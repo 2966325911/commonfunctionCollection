@@ -16,4 +16,6 @@
 
     <color name="circle_color">#BF9370</color>
     <color name="out_circle_color">#7abf9370</color>
+
+    <color name="red">#ff0000</color>
 </resources>

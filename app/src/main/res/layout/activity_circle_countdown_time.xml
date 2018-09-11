@@ -76,7 +76,20 @@
                 android:text="circle"
                 android:elevation="1dp" />
 
-
+            <com.kangengine.customview.widget.CircleCountDownView1
+                android:id="@+id/countdown1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:bg_color="@color/red"
+                app:progress_color="@color/red"
+                app:progress_hint_color="@color/out_circle_color"
+                app:text="60"
+                app:text_size="@dimen/tv_countdown_time" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="clickRectDown"
+                />
         </LinearLayout>
 
     </ScrollView>

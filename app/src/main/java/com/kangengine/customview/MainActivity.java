@@ -17,6 +17,7 @@ import com.kangengine.customview.activity.BtnOkAnimationActivity;
 import com.kangengine.customview.activity.CircleCountdownTimeActivity;
 import com.kangengine.customview.activity.CircleMenuLayoutActivity;
 import com.kangengine.customview.activity.LoginActivity;
+import com.kangengine.customview.activity.NotificationActivity;
 import com.kangengine.customview.activity.ShaderActivity;
 import com.kangengine.customview.activity.SurfaceViewActivity;
 import com.kangengine.customview.activity.TranslateAnimationActivity;
@@ -208,5 +209,9 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
 
     public void toTranslationActivity(View view) {
         toNextActivity(TranslateAnimationActivity.class,null);
+    }
+
+    public void toNotificaitonActivity(View view) {
+        toNextActivity(NotificationActivity.class,null);
     }
 }

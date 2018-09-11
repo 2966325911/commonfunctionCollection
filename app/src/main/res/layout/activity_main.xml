@@ -147,6 +147,11 @@ k
                 android:onClick="toTranslationActivity"
                 android:text="跳转转场动画页面" />
 
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toNotificaitonActivity"
+                android:text="跳转到Notification通知页面" />
+
         </LinearLayout>
     </ScrollView>
 
