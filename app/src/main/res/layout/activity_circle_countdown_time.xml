@@ -85,11 +85,7 @@
                 app:progress_hint_color="@color/out_circle_color"
                 app:text="60"
                 app:text_size="@dimen/tv_countdown_time" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="clickRectDown"
-                />
+
         </LinearLayout>
 
     </ScrollView>

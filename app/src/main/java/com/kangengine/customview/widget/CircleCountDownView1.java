@@ -96,8 +96,16 @@ public class CircleCountDownView1 extends View{
     private Action mEndAction;
 
     private Handler mHandler;
-    private boolean isStop = false;
+    private boolean isStop = true;
     private boolean isBgCircle = true;
+
+    public void setIsStop(boolean isStop) {
+        this.isStop = isStop;
+    }
+
+    public boolean getIsStop(){
+        return isStop;
+    }
 
     public CircleCountDownView1(Context context) {
         this(context, null);
@@ -203,12 +211,12 @@ public class CircleCountDownView1 extends View{
         mPaint.setColor(mProgressHintColor);
         canvas.drawCircle(centerX, centerY, mCircleRadius-mProgressWidth , mPaint);
 
-        //画字
-        mTextPaint.setTextSize(mTextSize);
-        mTextPaint.setColor(mTextColor);
-        mTextPaint.setTextAlign(Paint.Align.CENTER);
-        float textY = centerY - (mTextPaint.descent() + mTextPaint.ascent()) / 2;
-        canvas.drawText(mText.toString(), centerX, textY, mTextPaint);
+//        //画字
+//        mTextPaint.setTextSize(mTextSize);
+//        mTextPaint.setColor(mTextColor);
+//        mTextPaint.setTextAlign(Paint.Align.CENTER);
+//        float textY = centerY - (mTextPaint.descent() + mTextPaint.ascent()) / 2;
+//        canvas.drawText(mText.toString(), centerX, textY, mTextPaint);
 
         //画进度条
         mPaint.setStrokeWidth(mProgressWidth);
@@ -250,6 +258,7 @@ public class CircleCountDownView1 extends View{
     }
 
     public void startCountdownTime() {
+        isStop = false;
         isBgCircle = false;
         mDrawTimes = mTotalTime / mUpdateTime;
         mEachDrawAngle = 360 / mDrawTimes;
@@ -271,10 +280,12 @@ public class CircleCountDownView1 extends View{
      * 结束倒计时
      */
     public void endCountdownTime(){
+        isBgCircle = true;
         isStop = true;
         if(mHandler != null) {
             mHandler.removeCallbacksAndMessages(null);
         }
+        postInvalidate();
     }
 
 

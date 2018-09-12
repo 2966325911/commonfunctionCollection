@@ -57,6 +57,16 @@ public class CircleCountdownTimeActivity extends AppCompatActivity {
         v1.setOutlineProvider(viewOutlineProvider1);
         v2.setOutlineProvider(viewOutlineProvider2);
 
+        mCountdown1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mCountdown1.getIsStop()) {
+                    mCountdown1.startCountdownTime();
+                } else {
+                    mCountdown1.endCountdownTime();
+                }
+            }
+        });
     }
 
     public void startCountdown(View view){
@@ -67,7 +77,4 @@ public class CircleCountdownTimeActivity extends AppCompatActivity {
         mCountdown.endCountdownTime();
     }
 
-    public void clickRectDown(View view) {
-        mCountdown1.startCountdownTime();
-    }
 }
