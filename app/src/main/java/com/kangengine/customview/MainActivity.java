@@ -1,6 +1,7 @@
 package com.kangengine.customview;
 
 
+import android.app.IntentService;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LifecycleRegistry;
@@ -13,6 +14,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 
 
+import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
 import com.kangengine.customview.activity.BtnOkAnimationActivity;
 import com.kangengine.customview.activity.CircleCountdownTimeActivity;
 import com.kangengine.customview.activity.CircleMenuLayoutActivity;
@@ -36,7 +38,9 @@ import com.kangengine.customview.activity.PathAcitivty;
 import com.kangengine.customview.activity.PicPasswordActivity;
 import com.kangengine.customview.activity.PreferenceActivity;
 import com.kangengine.customview.activity.ScratchCardActivity;
+import com.kangengine.customview.util.OnResultManager;
 
+import io.reactivex.Notification;
 import me.ele.uetool.UETool;
 
 public class MainActivity extends BaseActivity implements LifecycleOwner {

@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/ffmpegandroid" />
             <option value="$PROJECT_DIR$/fingerprinttest" />
             <option value="$PROJECT_DIR$/lib_permission" />
             <option value="$PROJECT_DIR$/navigationdemo" />

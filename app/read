@@ -98,3 +98,10 @@ Glide的图片加载网络请求最终是在HttpUrlFetcher类中发生的，用�
 缓存等操作，回到EngineJob中，通过onResourceReady（）中的MAIN_THREAD_HANDLER.obtainMessage(MSG_COMPLETE, this).sendToTarget();
 将其切换到主线程中，调用handleResultOnMainThread(),通过EngineJobListenerde onEngineJobComplete()方法添加到缓存,
 最终调用DrawableImageViewTarget的ssetResource()方法将图片设置到ImageView上
+
+
+LruCache算法核心 = LRU算法 + LinkedHashMap数据结构
+LRU Least Recently Used最近最少使用算法 原理 ：当缓存满时，优先淘汰近期最少使用的缓存对象
+采用LRU 算法的缓存类型 内存缓存 磁盘缓存
+
+LinkedHashMap  数据结构 = 数组 + 单链表 +双向链表　　双向链表实现了 存储顺序 = 访问顺序 / 插入顺序

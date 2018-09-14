@@ -1,1 +1,1 @@
-include ':app', ':lib_permission', ':navigationdemo', ':fingerprinttest'
+include ':app', ':lib_permission', ':navigationdemo', ':fingerprinttest', ':ffmpegandroid'
