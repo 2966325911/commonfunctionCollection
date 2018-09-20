@@ -8,13 +8,17 @@ import android.arch.lifecycle.LifecycleRegistry;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 
 
 import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
+import com.kangengine.customview.activity.BackgroundViewActivity;
 import com.kangengine.customview.activity.BtnOkAnimationActivity;
 import com.kangengine.customview.activity.CircleCountdownTimeActivity;
 import com.kangengine.customview.activity.CircleMenuLayoutActivity;
@@ -26,6 +30,7 @@ import com.kangengine.customview.activity.TranslateAnimationActivity;
 import com.kangengine.customview.activity.UiTestActivity;
 import com.kangengine.customview.activity.VideoRecordActivity;
 import com.kangengine.customview.activity.XfermodesActivity;
+import com.kangengine.customview.activity.ZhongwenzhuanPinyinActivity;
 import com.kangengine.customview.ui.FlowLayoutActivity;
 import com.kangengine.customview.ui.PermissionActivity;
 import com.kangengine.customview.ui.ShoppingActvity;
@@ -40,13 +45,22 @@ import com.kangengine.customview.activity.PreferenceActivity;
 import com.kangengine.customview.activity.ScratchCardActivity;
 import com.kangengine.customview.util.OnResultManager;
 
-import io.reactivex.Notification;
+import java.util.Locale;
+
 import me.ele.uetool.UETool;
 
 public class MainActivity extends BaseActivity implements LifecycleOwner {
 
+
     private static final String PACKAGENAME_CLASSNAME = "MainActivity";
     private LifecycleRegistry mLifecycle = new LifecycleRegistry(this);
+    // 中文 英文 日语 德语
+    private static final String[] language = {"zh_CN", "en", "ja", "de"};
+
+    public static final String CHINESE = language[0];
+    public static final String ENGLISH = language[1];
+
+    private String type;
 
     @Override
     public Lifecycle getLifecycle() {
@@ -218,4 +232,26 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
     public void toNotificaitonActivity(View view) {
         toNextActivity(NotificationActivity.class,null);
     }
+
+    public void toBackgroundViewActivity(View view) {
+        toNextActivity(BackgroundViewActivity.class,null);
+    }
+
+    public void switchLanguage(View view) {
+        if(getLanguageZh()) {
+            type = ENGLISH;
+            setLanguageZh(false);
+        } else {
+            type = CHINESE;
+            setLanguageZh(true);
+        }
+
+        set(type);
+        recreate();
+    }
+
+    public void hanZiToPinYin(View view) {
+        toNextActivity(ZhongwenzhuanPinyinActivity.class,null);
+    }
+
 }

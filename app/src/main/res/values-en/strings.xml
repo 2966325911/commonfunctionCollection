@@ -247,9 +247,9 @@
         <item>64</item>
     </string-array>
 
-    <string name="flow_layout">进入流式布局界面</string>
-    <string name="shopping">进入购物车界面</string>
-    <string name="permission">进入权限申请界面</string>
-    <string name="floating_window">进入悬浮窗口页面</string>
+    <string name="flow_layout">Enter the streaming layout interface</string>
+    <string name="shopping">Enter the shopping cart interface</string>
+    <string name="permission">Access permission application interface</string>
+    <string name="floating_window">Enter the hover window page</string>
 
 </resources>

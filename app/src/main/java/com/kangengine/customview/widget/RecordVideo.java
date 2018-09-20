@@ -207,7 +207,7 @@ public class RecordVideo extends LinearLayout implements MediaRecorder.OnErrorLi
         // 创建文件
         try {
             //mp4格式
-            mRecordFile = File.createTempFile("video_"+ DateUtil.stamp2DayTime1(System.currentTimeMillis()),
+            mRecordFile = File.createTempFile("video"+ System.currentTimeMillis(),
                     ".mp4", vecordDir);
             Log.i("TAG", mRecordFile.getAbsolutePath());
         } catch (IOException e) {
@@ -240,7 +240,8 @@ public class RecordVideo extends LinearLayout implements MediaRecorder.OnErrorLi
         // 视频输出格式
         mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
         // 音频格式
-        mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+//        mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+        mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
         // 设置分辨率： 640 * 480
         mMediaRecorder.setVideoSize(mWidth, mHeight);
         mMediaRecorder.setVideoFrameRate(30);
@@ -248,8 +249,9 @@ public class RecordVideo extends LinearLayout implements MediaRecorder.OnErrorLi
         mMediaRecorder.setVideoEncodingBitRate(1 * 1024 * 1024);
         // 输出旋转90度，保持竖屏录制
         mMediaRecorder.setOrientationHint(90);
-        // 视频录制格式
-        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
+        // 视频录制格式   视频格式用H264或者其他的（MPEG_4_SP不可以）否则，网页无法播放
+//        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
+        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         //最大持续时间60s
         mMediaRecorder.setMaxDuration(MAX_TIME* 1000);
         mMediaRecorder.setOutputFile(mRecordFile.getAbsolutePath());

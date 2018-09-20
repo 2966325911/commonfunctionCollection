@@ -18,31 +18,31 @@
             >
             <Button
                 style="@style/btnStyle"
-                android:text="进入流式布局界面"
+                android:text="@string/flow_layout"
                 android:onClick="toFlowActivity"
                 />
 
             <Button
                 style="@style/btnStyle"
-                android:text="进入购物车界面"
+                android:text="@string/shopping"
                 android:onClick="toShoppingActivity"
                 />
 
             <Button
                 style="@style/btnStyle"
-                android:text="进入权限申请页面"
+                android:text="@string/permission"
                 android:onClick="toPermissionActivity"
                 />
 
             <Button
                 style="@style/btnStyle"
-                android:text="进入悬浮窗口页面"
+                android:text="@string/permission"
                 android:onClick="toFloatActivity"
                 />
 
             <Button
                 style="@style/btnStyle"
-                android:text="进入自定义View测试页面"
+                android:text="@string/floating_window"
                 android:onClick="toCustomView"
                 />
 
@@ -151,6 +151,22 @@ k
                 style="@style/btnStyle"
                 android:onClick="toNotificaitonActivity"
                 android:text="跳转到Notification通知页面" />
+
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toBackgroundViewActivity"
+                android:text="跳转到BackgroundView页面" />
+
+            <Button
+                style="@style/btnStyle"
+                android:onClick="switchLanguage"
+                android:text="中英文切换" />
+
+            <Button
+                style="@style/btnStyle"
+                android:onClick="hanZiToPinYin"
+                android:text="中文转拼音" />
+
 
         </LinearLayout>
     </ScrollView>
