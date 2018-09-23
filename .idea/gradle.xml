@@ -11,6 +11,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/ffmpegandroid" />
             <option value="$PROJECT_DIR$/fingerprinttest" />
+            <option value="$PROJECT_DIR$/jnicompressimg" />
+            <option value="$PROJECT_DIR$/jnicompressimglibrary" />
+            <option value="$PROJECT_DIR$/lib_jpeg_compress" />
             <option value="$PROJECT_DIR$/lib_permission" />
             <option value="$PROJECT_DIR$/navigationdemo" />
           </set>

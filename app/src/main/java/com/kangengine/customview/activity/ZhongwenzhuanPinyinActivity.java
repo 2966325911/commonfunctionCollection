@@ -9,7 +9,7 @@ import com.kangengine.customview.R;
 
 /**
  * @author Vic
- * desc : 中文转平移
+ * desc : 中文转拼音 retrofit 文件处理
  */
 public class ZhongwenzhuanPinyinActivity extends BaseActivity {
 

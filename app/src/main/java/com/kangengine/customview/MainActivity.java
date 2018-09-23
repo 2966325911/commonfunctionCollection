@@ -22,6 +22,7 @@ import com.kangengine.customview.activity.BackgroundViewActivity;
 import com.kangengine.customview.activity.BtnOkAnimationActivity;
 import com.kangengine.customview.activity.CircleCountdownTimeActivity;
 import com.kangengine.customview.activity.CircleMenuLayoutActivity;
+import com.kangengine.customview.activity.JniCompressImgActivity;
 import com.kangengine.customview.activity.LoginActivity;
 import com.kangengine.customview.activity.NotificationActivity;
 import com.kangengine.customview.activity.ShaderActivity;
@@ -254,4 +255,7 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
         toNextActivity(ZhongwenzhuanPinyinActivity.class,null);
     }
 
+    public void toJniCompressImg(View view) {
+        toNextActivity(JniCompressImgActivity.class,null);
+    }
 }

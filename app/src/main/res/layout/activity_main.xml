@@ -165,7 +165,13 @@ k
             <Button
                 style="@style/btnStyle"
                 android:onClick="hanZiToPinYin"
-                android:text="中文转拼音" />
+                android:text="中文转拼音及Retrofit网络请求" />
+
+
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toJniCompressImg"
+                android:text="利用jni对图片进行压缩" />
 
 
         </LinearLayout>

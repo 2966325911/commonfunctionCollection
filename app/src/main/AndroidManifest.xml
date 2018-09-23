@@ -161,7 +161,8 @@
         <activity
             android:name=".activity.BackgroundViewActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".activity.ZhongwenzhuanPinyinActivity"></activity>
+        <activity android:name=".activity.ZhongwenzhuanPinyinActivity" />
+        <activity android:name=".activity.JniCompressImgActivity"></activity>
     </application>
 
 </manifest>
