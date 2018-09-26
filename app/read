@@ -105,3 +105,8 @@ LRU Least Recently Used最近最少使用算法 原理 ：当缓存满时，优�
 采用LRU 算法的缓存类型 内存缓存 磁盘缓存
 
 LinkedHashMap  数据结构 = 数组 + 单链表 +双向链表　　双向链表实现了 存储顺序 = 访问顺序 / 插入顺序
+
+java 的反射对象类Class 、Constructor、Field,Method,Package实现了AnnotatedElement 的接口
+Annotation 主要分类有三种：1 内置的Annotation  eg:@Override 2 作用于Annotation的Annotation
+eg : @Retention @Documented @ Target   @Inherited表示该Annotation可以影响到被标注的类的子类
+3 自定义Annotation java1.5以后可以自定义Annotation

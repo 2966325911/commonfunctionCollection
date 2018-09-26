@@ -140,6 +140,8 @@ public class JniCompressImgActivity extends BaseActivity {
                         Log.e("androidpiccompress", "=====图片为空=====");
                     }
                     break;
+                    default:
+                        break;
             }
         }
     }

@@ -1,16 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.kangengine.customview.activity.ZhongwenzhuanPinyinActivity">
 
-    <TextView
-        android:id="@+id/tv_pinyin"
+    <LinearLayout
+        android:id="@+id/ll_click"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_pinyin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:onClick="clickDownFile"
+            android:text="点击下载" />
+
+    </LinearLayout>
+
+
+    <!--<ProgressBar-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:id="@+id/progressBar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="10dp"-->
+    <!--android:max="100"-->
+    <!--style="?android:attr/progressBarStyleHorizontal"-->
+    <!--android:progress="0"-->
+
+    <!--/>-->
+
+    <LinearLayout
+        android:id="@+id/ll_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

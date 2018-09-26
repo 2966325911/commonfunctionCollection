@@ -1,1 +1,1 @@
-include ':app', ':lib_permission', ':navigationdemo', ':fingerprinttest', ':ffmpegandroid', ':jnicompressimglibrary', ':jnicompressimg', ':lib_jpeg_compress'
+include ':app', ':lib_permission', ':navigationdemo', ':fingerprinttest', ':ffmpegandroid', ':jnicompressimglibrary', ':jnicompressimg', ':lib_jpeg_compress', ':retrofitlibrary'
