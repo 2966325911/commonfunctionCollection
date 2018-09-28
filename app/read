@@ -110,3 +110,29 @@ java 的反射对象类Class 、Constructor、Field,Method,Package实现了Annot
 Annotation 主要分类有三种：1 内置的Annotation  eg:@Override 2 作用于Annotation的Annotation
 eg : @Retention @Documented @ Target   @Inherited表示该Annotation可以影响到被标注的类的子类
 3 自定义Annotation java1.5以后可以自定义Annotation
+
+APK加固，本质上给原来的apk加了一个空壳，
+1、需要加密的Apk(源Apk)
+2、壳程序Apk(负责解密Apk工作)
+3、加密工具(将源Apk进行加密和壳Dex合并成新的Dex)
+主要步骤：我们拿到需要加密的Apk和自己的壳程序Apk，然后用加密算法对源Apk进行加密在将壳Apk进行合并得
+到新的Dex文件，最后替换壳程序中的dex文件即可，得到新的Apk,那么这个新的Apk我们也叫作脱壳程序Apk.它
+已经不是一个完整意义上的Apk程序了，它的主要工作是：负责解密源Apk.然后加载Apk,让其正常运行起来。
+
+JNI 使用Native库调用load 与loadLibrary方法区别
+System.load(String fileName)  System.loadLibrary(String libname)
+加载的路径不同；System.load(String filename) 是从作为动态库的本地文件系统中以指定的文件
+名加载代码文件，文件名参数必须是完整的路径名且带文件后缀；而 System.loadLibrary(String libname)
+是加载由 libname 参数指定的系统库（系统库指的是 java.library.path，可以通过 System.getProperty(String key)
+方法查看 java.library.path 指向的目录内容），将库名映射到实际系统库的方法取决于系统实现，
+譬如在 Android 平台系统会自动去系统目录、应用 lib 目录下去找 libname 参数拼接了 lib 前缀
+的库文件。
+是否自动加载库的依赖库；譬如 libA.so 和 libB.so 有依赖关系，如果选择
+System.load("/sdcard/path/libA.so")，即使 libB.so 也放在 /sdcard/path/ 路径下，
+load 方法还是会因为找不到依赖的 libB.so 文件而失败，因为虚拟机在载入 libA.so 的时候发现它
+依赖于 libB.so，那么会先去 java.library.path 下载入 libB.so，而 libB.so 并不位于
+ java.library.path 下，所以会报错。解决的方案就是先 System.load("/sdcard/path/libB.so")
+  再 System.load("/sdcard/path/libA.so")，但是这种方式不太靠谱，因为必须明确知道依赖关系；
+  另一种解决方案就是使用 System.loadLibrary("A")，然后把 libA.so 和 libB.so 都放在
+   java.library.path 下即可。
+

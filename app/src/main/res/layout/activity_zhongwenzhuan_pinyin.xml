@@ -24,6 +24,13 @@
             android:onClick="clickDownFile"
             android:text="点击下载" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击从Assets下copy文件到手机目录"
+            android:onClick="clickCopyAssetsFile"
+            />
+
     </LinearLayout>
 
 

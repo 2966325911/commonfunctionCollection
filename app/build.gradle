@@ -65,4 +65,13 @@ dependencies {
     compile 'com.github.promeg:tinypinyin-lexicons-java-cncity:2.0.3'
     implementation project(':lib_jpeg_compress')
     implementation project(':retrofitlibrary')
+    //retrofit2
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+
+    //gif
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.2'
+    //AssetFile - 像File一样操作Asset资源
+    implementation 'com.dyhdyh.io:asset-file:1.0.2'
 }

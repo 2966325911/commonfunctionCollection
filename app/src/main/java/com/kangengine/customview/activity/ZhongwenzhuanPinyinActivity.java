@@ -8,6 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.dyhdyh.manager.assets.AssetFile;
+import com.dyhdyh.manager.assets.AssetsManager;
 import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.util.ToastUtil;
@@ -16,6 +18,8 @@ import com.kangengine.retrofitlibrary.JsDownloadListener;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+
+import java.io.File;
 
 
 /**
@@ -112,5 +116,16 @@ public class ZhongwenzhuanPinyinActivity extends BaseActivity implements JsDownl
         String[] urls = urlStr.split(split);
 
         return urls[urls.length-1];
+    }
+
+
+    public void clickCopyAssetsFile(View view){
+        AssetFile assetFile = new AssetFile("test.jpg");
+        File outputFile = new File(Environment.getExternalStorageDirectory(),assetFile.getName());
+        if(AssetsManager.copyAssetFile(getAssets(),assetFile.getAssetPath(),outputFile)){
+            ToastUtil.showToast(this,"copy success");
+        } else {
+            ToastUtil.showToast(this,"copy fail");
+        }
     }
 }

@@ -2,5 +2,8 @@
 <resources>
 
     <dimen name="tv_countdown_time">30sp</dimen>
+    <dimen name="size_padding_small">10dp</dimen>
+    <dimen name="size_padding_xsmall">4dp</dimen>
+    <dimen name="size_padding_medium">6dp</dimen>
 
 </resources>

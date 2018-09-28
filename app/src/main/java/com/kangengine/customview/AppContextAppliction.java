@@ -15,9 +15,11 @@ import me.ele.uetool.UETool;
  */
 public class AppContextAppliction extends Application {
 
+    private static AppContextAppliction appliction;
     @Override
     public void onCreate() {
         super.onCreate();
+        appliction = this;
 //        int mode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 //        if(mode == Configuration.UI_MODE_NIGHT_YES) {
 //            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -70,5 +72,9 @@ public class AppContextAppliction extends Application {
 
             }
         });
+    }
+
+    public static AppContextAppliction getInstance() {
+        return appliction;
     }
 }
