@@ -31,6 +31,13 @@
             android:onClick="clickCopyAssetsFile"
             />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="利用依赖库去下载文件"
+            android:onClick="clickDownloadFile"
+            />
+
     </LinearLayout>
 
 

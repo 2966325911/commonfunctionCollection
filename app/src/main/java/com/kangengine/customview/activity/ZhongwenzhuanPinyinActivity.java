@@ -15,6 +15,12 @@ import com.kangengine.customview.R;
 import com.kangengine.customview.util.ToastUtil;
 import com.kangengine.retrofitlibrary.DownloadUtils;
 import com.kangengine.retrofitlibrary.JsDownloadListener;
+import com.kangengine.retrofitlibrary2.util.httputil.Constant;
+import com.kangengine.retrofitlibrary2.util.httputil.HttpBuilder;
+import com.kangengine.retrofitlibrary2.util.httputil.HttpUtil;
+import com.kangengine.retrofitlibrary2.util.httputil.interfaces.Error;
+import com.kangengine.retrofitlibrary2.util.httputil.interfaces.Progress;
+import com.kangengine.retrofitlibrary2.util.httputil.interfaces.Success;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -102,9 +108,7 @@ public class ZhongwenzhuanPinyinActivity extends BaseActivity implements JsDownl
     @Override
     public void onFinishDownload() {
         Log.d(TAG,"==onFinishedDownload===");
-        mLinearLayout.setVisibility(View.GONE);
-        mLinearLayoutClick.setVisibility(View.VISIBLE);
-        ToastUtil.showToast(this,"下载完成");
+
     }
 
     @Override
@@ -119,6 +123,10 @@ public class ZhongwenzhuanPinyinActivity extends BaseActivity implements JsDownl
     }
 
 
+    /**
+     * 从assets copy文件到sd卡
+     * @param view
+     */
     public void clickCopyAssetsFile(View view){
         AssetFile assetFile = new AssetFile("test.jpg");
         File outputFile = new File(Environment.getExternalStorageDirectory(),assetFile.getName());
@@ -127,5 +135,38 @@ public class ZhongwenzhuanPinyinActivity extends BaseActivity implements JsDownl
         } else {
             ToastUtil.showToast(this,"copy fail");
         }
+    }
+
+    /**
+     * 下载文件
+     * @param view
+     */
+    public void clickDownloadFile(View view) {
+        String fileName = getFileName(url,"/");
+        new HttpUtil.SingletonBuilder(getApplicationContext(), baseUrl)
+                .build();
+
+        new HttpBuilder(getApplicationContext(),url).isConnected().path(filePath)
+                .fileName(fileName)
+                .progress(new Progress() {
+            @Override
+            public void progress(int p) {
+                Log.d(TAG,"===progresss===="  + p);
+            }
+        }).success(new Success() {
+            @Override
+            public void Success(String model) {
+                Log.d(TAG,"===下载文件成功===");
+                mLinearLayout.setVisibility(View.GONE);
+                mLinearLayoutClick.setVisibility(View.VISIBLE);
+                ToastUtil.showToast(ZhongwenzhuanPinyinActivity.this,"下载完成");
+            }
+        }).error(new Error() {
+            @Override
+            public void Error(String message, String type) {
+                Log.d(TAG,"===下载文件失败===");
+            }
+        }).download();
+
     }
 }

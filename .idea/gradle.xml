@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/lib_permission" />
             <option value="$PROJECT_DIR$/navigationdemo" />
             <option value="$PROJECT_DIR$/retrofitlibrary" />
+            <option value="$PROJECT_DIR$/retrofitlibrary2" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
