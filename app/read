@@ -136,3 +136,60 @@ load 方法还是会因为找不到依赖的 libB.so 文件而失败，因为虚
   另一种解决方案就是使用 System.loadLibrary("A")，然后把 libA.so 和 libB.so 都放在
    java.library.path 下即可。
 
+
+在非静态内部类访问外部私有成员/外部类访问内部类私有成员的时候，对应的外部类/外部类会生成一个静态方法
+，用来返回对应私有成员的值，而对应外部类对象/内部类对象通过调用其内部类/外部类提供的静态方法来获取
+对应的私有成员的值
+
+过度绘制解决：
+1 theme
+ <style name="AppTheme" parent="">
+ <item name="android.windowBackground">@null</item>
+</style>
+2 在Activity的onCreate中添加
+getWindow().setBackgroundDrawable(null)//如果在设置开屏页面为了防止页面白屏在主题中设置的图片，
+要在进入之后将其主题的背景图片置为null
+3 移除控件中需要的背景
+4 将layout层级扁平化
+5 使用Layout Inspector去查看layout的层次结构来优化view的层级
+6 使用merge标签减少嵌套 通过<include>标签复用布局
+7 使用lint来优化布局的层次结构，要使用lint，点击Analyze> Inspect Code即可
+8 减少自定义view的过度绘制，使用clieRect裁剪及相关方法优化，绘制需要绘制的部分
+9 使用viewStub标签延迟加载
+通过以下代码即可在需要时加载布局：
+findViewById(R.id.stub_import)).setVisibility(View.VISIBLE);
+或者
+View importPanel = ((ViewStub) findViewById(R.id.stub_import)).inflate();
+10 onDraw()中不要创建新的局部变量以及不要做耗时操作，因为可能为对此调用
+11 使用ConstraintLayout来优化，官方推荐
+
+app启动优化
+1 Application onCreate() 优化，对三方的SDK进行懒加载，在用的时候再去初始化
+2 Activity onCreate()优化 介绍LaunchActivity的view 的层级，减少绘制时间
+黑白屏原因：如果你的application或activity启动的过程太慢，导致系统的BackgroundWindow没有及时被替换，
+就会出现启动时白屏或黑屏的情况（取决于你的主题是Dark还是Light）。
+解决办法:使用透明主题:
+<item name="android:windowIsTranslucent">true</item>
+我们在style中自定义一个样式Lancher，在其中放一张背景图片，或是广告图片之类的
+<style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/bg</item>
+    </style>
+把这个样式设置给启动的Activity
+<activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Launcher"
+            >
+然后在Activity的onCreate方法，把Activity设置回原来的主题
+    protected void onCreate(Bundle savedInstanceState) {
+        //替换为原来的主题，在onCreate之前调用
+        setTheme(R.style.AppTheme);
+        super.onCreate(savedInstanceState);
+    }
+这样在启动时就通过给用户看一张图片或是广告来防止黑白屏的尴尬。
+这个链接解决的方案地址：https://juejin.im/post/58ad90518ac2472a2ad9b684
+
+
+
+
+
