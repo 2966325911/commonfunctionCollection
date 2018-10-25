@@ -2,6 +2,7 @@ package com.kangengine.customview.activity;
 
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -10,33 +11,29 @@ import android.widget.TextView;
 
 import com.dyhdyh.manager.assets.AssetFile;
 import com.dyhdyh.manager.assets.AssetsManager;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.util.ToastUtil;
-import com.kangengine.retrofitlibrary.DownloadUtils;
-import com.kangengine.retrofitlibrary.JsDownloadListener;
-import com.kangengine.retrofitlibrary2.util.httputil.Constant;
+import com.kangengine.retrofitlibrary2.util.httputil.BaseModel;
 import com.kangengine.retrofitlibrary2.util.httputil.HttpBuilder;
 import com.kangengine.retrofitlibrary2.util.httputil.HttpUtil;
 import com.kangengine.retrofitlibrary2.util.httputil.interfaces.Error;
 import com.kangengine.retrofitlibrary2.util.httputil.interfaces.Progress;
 import com.kangengine.retrofitlibrary2.util.httputil.interfaces.Success;
-
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
-
 import java.io.File;
+import java.util.Map;
 
 
 /**
  * @author Vic
  * desc : 中文转拼音 retrofit 文件处理
  */
-public class ZhongwenzhuanPinyinActivity extends BaseActivity implements JsDownloadListener {
+public class ZhongwenzhuanPinyinActivity extends BaseActivity {
     private static final String TAG = ZhongwenzhuanPinyinActivity.class.getSimpleName();
 
     private TextView tvPinYin;
-    DownloadUtils downloadUtils;
     private String baseUrl = "http://yydys-prd-app.oss-cn-hangzhou.aliyuncs.com/";
     private String url = "http://yydys-prd-app.oss-cn-hangzhou.aliyuncs.com/xfw/android/1.0.0/xfw0925.apk";
     private String filePath = Environment.getExternalStorageDirectory() + "/customview/download/file/";
@@ -52,8 +49,6 @@ public class ZhongwenzhuanPinyinActivity extends BaseActivity implements JsDownl
         String text = getPinYin("上海");
         tvPinYin = findViewById(R.id.tv_pinyin);
         tvPinYin.setText(text);
-
-        downloadUtils = new DownloadUtils(baseUrl,this);
         mLinearLayoutClick = findViewById(R.id.ll_click);
         progressBar = findViewById(R.id.progressBar);
         mLinearLayout = findViewById(R.id.ll_progress);
@@ -61,60 +56,6 @@ public class ZhongwenzhuanPinyinActivity extends BaseActivity implements JsDownl
 
     }
 
-
-    public void clickDownFile(View view) {
-        String fileName = getFileName(url,"/");
-        downloadUtils.download(url, filePath ,fileName, new rx.Subscriber() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(Object o) {
-
-            }
-        });
-    }
-
-    @Override
-    public void onStartDownload() {
-        Log.d(TAG,"==onStartDownload===");
-        mLinearLayoutClick.setVisibility(View.GONE);
-        mLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void onProgress(final int progress) {
-
-        Log.d(TAG,"progress==== " + progress);
-//        runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                progressBar.setProgress(progress);
-//            }
-//        });
-//        progressBar.setProgress(progress);
-//        if(100 == progress){
-//            mLinearLayout.setVisibility(View.GONE);
-//        }
-    }
-
-    @Override
-    public void onFinishDownload() {
-        Log.d(TAG,"==onFinishedDownload===");
-
-    }
-
-    @Override
-    public void onFail(String errorInfo) {
-
-    }
 
     private String getFileName(String urlStr,String split) {
         String[] urls = urlStr.split(split);
@@ -137,8 +78,10 @@ public class ZhongwenzhuanPinyinActivity extends BaseActivity implements JsDownl
         }
     }
 
+
+  //--------------------------------以下下载上传均采用com.kangengine.retrofitlibrary2此库的方式-----------------------------------------------------//
     /**
-     * 下载文件
+     * 下载文件 参考其他的封装库，次下载相对比较完善，能正确下载文件，采用com.kangengine.retrofitlibrary2
      * @param view
      */
     public void clickDownloadFile(View view) {
@@ -169,4 +112,88 @@ public class ZhongwenzhuanPinyinActivity extends BaseActivity implements JsDownl
         }).download();
 
     }
+
+    /**
+     * post请求数据
+     */
+    private void postParams(){
+        new HttpUtil.SingletonBuilder(getApplicationContext(), "base_url一般是前缀以 / 结尾")
+                .build();
+        new HttpBuilder(getApplicationContext(),"访问的具体地址")
+                .isConnected()
+                .params("post的key","post的value")
+                .success(new Success() {
+                    @Override
+                    public void Success(String Strings) {
+                        BaseModel model = new BaseModel(Strings);
+                        if(model != null) {
+                            if(model.success) {
+                                if(!TextUtils.isEmpty(model.data)) {
+                                     //请求成功返回的数据 如果是的{key1,：value1，key2 ：value2}这种形式，用map去解，否则用构造对象去解
+                                    Map<String,String> keyValueString = new Gson().fromJson(model.data,
+                                            new TypeToken<Map<String,String>>(){}.getType());
+
+                                    String value = keyValueString.get("key");
+                                }
+                            }
+                        }
+                    }
+                } )
+                .post();
+    }
+
+
+    /**
+     * put上传单个图片，例如头像
+     * @param file_path
+     */
+    private void sendFile(String file_path){
+        new HttpUtil.SingletonBuilder(getApplicationContext(), "baseurl")
+                .build();
+        new HttpBuilder(getApplicationContext(), "具体请求地址")
+                .isConnected()
+                .success(new Success() {
+                    @Override
+                    public void Success(String Strings) {
+                        Log.d(TAG,Strings);
+                    }
+                } )
+                .error(new Error() {
+                    @Override
+                    public void Error(String message, String type) {
+
+                    }
+                })
+                .put(file_path);
+    }
+
+    /**
+     * get获取数据
+     */
+    private void getData(){
+        new HttpUtil.SingletonBuilder(getApplicationContext(), "baseurl")
+                .build();
+
+        new HttpBuilder(getApplicationContext(), "具体的请求地址")
+                .setShow_progressbar(false)
+                .success(new Success() {
+                    @Override
+                    public void Success(String Strings) {
+                        Log.d(TAG,Strings);
+
+                        BaseModel model = new BaseModel(Strings);
+                        if(model != null) {
+                            if(model.success) {
+                                //TODO 请求成功处理逻辑
+                            } else {
+
+                            }
+                        }
+                    }
+                } )
+                .get();
+    }
+
+
+
 }

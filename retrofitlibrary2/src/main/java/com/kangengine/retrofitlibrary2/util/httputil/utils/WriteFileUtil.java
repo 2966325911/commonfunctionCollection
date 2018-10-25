@@ -24,7 +24,10 @@ public class WriteFileUtil {
     public static Handler mHandler = new Handler(Looper.getMainLooper());
 
     public static void writeFile(ResponseBody body, String path, String fileName,final Progress progress, Success mSuccessCallBack, Error mErrorCallBack) {
-        File futureStudioIconFile = new File(path,fileName);
+        File futureStudioIconFile = new File(path);
+        if(!futureStudioIconFile.exists()){
+            futureStudioIconFile.mkdirs();
+        }
         InputStream inputStream = null;
         OutputStream outputStream = null;
         final ProgressInfo progressInfo = new ProgressInfo();
@@ -33,7 +36,7 @@ public class WriteFileUtil {
             progressInfo.total = body.contentLength();
             progressInfo.read = 0;
             inputStream = body.byteStream();
-            outputStream = new FileOutputStream(futureStudioIconFile);
+            outputStream = new FileOutputStream(futureStudioIconFile + "/" + fileName);
             while (true) {
                 int read = inputStream.read(fileReader);
                 if (read == -1) {
@@ -61,6 +64,7 @@ public class WriteFileUtil {
                     outputStream.close();
                 }
             } catch (IOException e) {
+                e.printStackTrace();
             }
 
         }

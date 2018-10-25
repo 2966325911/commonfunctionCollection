@@ -98,16 +98,15 @@ public class DownloadUtils {
      */
     private void writeFile(InputStream inputStream, String filePath,String fileName) {
 
-        File file = new File(filePath,fileName);
-        if (file.exists()) {
-            file.delete();
-        } else {
+        File file = new File(filePath);
+
+        if(!file.exists()){
             file.mkdirs();
         }
 
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream(file);
+            fos = new FileOutputStream(file+"/" + fileName);
 
             byte[] b = new byte[1024];
 

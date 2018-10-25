@@ -384,27 +384,7 @@ public class HttpBuilder {
                 });
             }
         });
-//        Observable<ResponseBody> observable = Observable.create(subscriber -> {
-//                    call.enqueue(new Callback<ResponseBody>() {
-//                        @Override
-//                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-//                            subscriber.onNext(response.body());
-//                        }
-//
-//                        @Override
-//                        public void onFailure(Call<ResponseBody> call, Throwable t) {
-//                            mErrorCallBack.Error(t);
-//                        }
-//                    });
-//                }
-//        );
 
-
-//        observable.observeOn(Schedulers.io())
-//                .subscribe(body -> WriteFileUtil.writeFile(body, path, mProgressListener, mSuccessCallBack, mErrorCallBack), t -> {
-//                            mErrorCallBack.Error(t);
-//                        }
-//                );
 
         observable.observeOn(Schedulers.io()).subscribe(new io.reactivex.functions.Consumer<ResponseBody>() {
             @Override
@@ -412,10 +392,7 @@ public class HttpBuilder {
                 WriteFileUtil.writeFile(responseBody,path,fileName,mProgressListener,mSuccessCallBack,mErrorCallBack);
             }
         });
-//                .subscribe(body -> WriteFileUtil.writeFile(body, path, mProgressListener, mSuccessCallBack, mErrorCallBack), t -> {
-//                            mErrorCallBack.Error(t);
-//                        }
-//                );
+
     }
     public boolean isShow_progressbar() {
         return show_progressbar;

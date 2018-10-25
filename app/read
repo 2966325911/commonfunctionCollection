@@ -190,6 +190,101 @@ app启动优化
 这个链接解决的方案地址：https://juejin.im/post/58ad90518ac2472a2ad9b684
 
 
+ViewRootImpl主要有以下几个功能点：
+1 连接WindowManager和DecorView的纽带
+2 向DecorView派发输入事件
+3 完成view的绘制(measure,layout,draw)
+4 负责与WMS的交互通讯，调整窗口大小及布局
+view绘制
+ViewRootImpl -->setView()-->requestLayout()-->scheduleTraversals(){
+   //post一个runnable处理-->mTraversalRunnable
+             mChoreographer.postCallback(
+                     Choreographer.CALLBACK_TRAVERSAL, mTraversalRunnable, null);
+                     }
+发一个TraversalRunnable ，执行其中的 doTraversal()--> performTraversals();
+
+ViewRootImpl在其创建过程中通过requestLayout()向主线程发送了一条触发遍历操作的消息，遍历操作
+是指performTraversals()方法。它是一个包罗万象的方法。ViewRootImpl中接收的各种变化，如来自WmS
+的窗口属性变化、来自控件树的尺寸变化及重绘请求等都引发performTraversals()的调用，并在其中完成
+处理。View类及其子类中的onMeasure()、onLayout()、onDraw()等回调也都是在performTraversals()
+的执行过程中直接或间接的引发。也正是如此，一次次的performTraversals()调用驱动着控件树有条不紊
+的工作，一旦此方法无法正常执行，整个控件树都将处于僵死状态。因此performTraversals()函数可以说
+是ViewRootImpl的心跳。
+
+performTraversal()中首次调用其中的performMeasure()--->performLayout()-->performDraw()
+
+performMeasure : 会调用View的measure方法，在measure方法中又会调用onMeasure方法，在onMeasure方法中
+则会对所有的子元素进行measure过程，这个时候measure流程就从父容器传到子元素中了，这样就完成了一
+次measure过程。measure完成以后，可以通过getMeasuredWidth和getMeasureHeight方法来获取到View
+测量后的宽高。
+
+performLayout : 和performMeasure同理。Layout过程决定了View的四个顶点的坐标和实际View的宽高，
+完成以后，可以通过getTop/Bottom/Left/Right拿到View的四个顶点位置，并可以通过getWidth和
+getHeight方法来拿到View的最终宽高。
+
+performDraw : 和performMeasure同理，唯一不同的是，performDraw的传递过程是在draw方法中通过
+dispatchDraw来实现的。Draw过程则决定了View的显示，只有draw方法完成以后View的内容才能呈现在
+屏幕上。
+
+在view.measure中，当MeasureSpec发生变化时或者强制重新绘制新布局时，才会进行测量。
+子view的MeasureSpec==LayoutParams+margin+padding+父容器的MeasureSpec
+view的layout过程和measure同理，也是从顶级View开始，递归的完成整个控件树的布局操作
+measure过程是后根遍历（DecorView最后setMeasureDeimension()）,所以控件的测量结果影响父控件的测量结果
+layout的过程是先根遍历（一开始就调用setFrame()完成DecorView的布局），所以父控件布局结果会影响子控件的布局结果
+view的draw绘制过程回遵循以下几步：
+1 绘制背景drawBackground 2 绘制自己onDraw  3  如果是ViewGroup则绘制子view，dispatchDraw()
+4 绘制装饰（滚动条）和前景，onDrawForeground
+
+Java中单例模式模式经典两种：
+静态内部类：
+ public class Singleton{
+        private static class InnerClass{
+            private static Singleton singleton = new Singleton();
+        }
+        public static Singleton getInstance(){
+            return InnerClass.singleton;
+        }
+        private Singleton(){
+        }
+    }
+
+    双重锁实现：
+      public class Singleton{
+            private static volatile Singleton singleton = null;
+            public static Singleton getInstance(){
+                if(singleton == null){
+                    synchronized (Singleton.class) {
+                        if(singleton == null){
+                            singleton = new Singleton();
+                        }
+                    }
+                }
+                return singleton;
+            }
+            private Singleton(){
+            }
+        }
 
 
+ThreadLocal作用是提供线程内的局部变量，这种变量在线程的生命周期内起作用，减少同一个线程内多个函数和组件
+之间一些公共变量的传递的复杂度。
+ThreadLocal实现不当会导致内存泄露,实现原理:每个Thread维护一个ThreadLocalMap映射表，映射表的key是ThreadLocal
+本身的实例，value是真正需要存储的Object
+ThreadLocal使用内存泄露的原因：
+ThreadLocalMap使用ThreadLocal的弱引用作为key，如果一个ThreadLocal没有外部强引用来引用它，
+那么系统 GC 的时候，这个ThreadLocal势必会被回收。
+这样一来，ThreadLocalMap中就会出现key为null的Entry，就没有办法访问这些key为null的Entry的
+value，如果当前线程再迟迟不结束的话，这些key为null的Entry的value就会一直存在一条强引用链
+：Thread Ref -> Thread -> ThreaLocalMap -> Entry -> value永远无法回收，造成内存泄漏。
+1 使用static的ThreadLocal，延长了ThreadLocal的生命周期，可能导致的内存泄漏。
+2 分配使用了ThreadLocal又不再调用get(),set(),remove()方法，那么就会导致内存泄漏。
+解决办法：
+每次使用完ThreadLocal，都调用它的remove()方法，清除数据。
 
+
+java多线程---锁优化
+1 尽量不要锁住方法
+2 缩小同步代码块，只锁数据
+3 锁中尽量不要再包含锁（如果有可能导致死锁）
+4 将锁私有化，在内部管理锁
+5 进行适当的锁分解

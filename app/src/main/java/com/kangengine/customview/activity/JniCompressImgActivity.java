@@ -146,7 +146,10 @@ public class JniCompressImgActivity extends BaseActivity {
         }
     }
 
-    //    public void compressImage(Uri uri) {
+    /**
+     * 压缩片
+     * @param imageUrl
+     */
     public void compressImage(String imageUrl) {
         Log.e("androidpiccompress", "====开始====imageUrl==" + imageUrl);
         File saveFile = new File(getPicPath(), "compress_" + System.currentTimeMillis() + ".jpg");

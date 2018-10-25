@@ -12,12 +12,101 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-    }
-    buildTypes {
-        release {
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        //选择要添加的对应cpu类型的.so库。
+        ndk{
+            abiFilters "armeabi ","armeabi-v7a"
         }
     }
+    /**
+     * 设置之后debug 和release的时候会自动加载相应文件夹的文件
+     */
+    sourceSets{
+        debug.setRoot("src/debug")
+        release.setRoot("src/release")
+    }
+//设置文件签名
+//    signingConfigs {
+//        debug {
+//            keyAlias ''
+//            keyPassword ''
+//            storeFile file('')
+//            storePassword ''
+//        }
+//        release {
+//            keyAlias ''
+//            keyPassword ''
+//            storeFile file('')
+//            storePassword ''
+//        }
+//    }
+
+    buildTypes {
+//        debug {
+//            // 显示Log
+//            buildConfigField "boolean", "LOG_DEBUG", "true"
+//            minifyEnabled false
+//            debuggable true
+//            signingConfig signingConfigs.debug
+//        }
+//
+//        release {
+//            // 不显示Log, 在java代码中的调用方式为：BuildConfig.LOG_DEBUG
+//            buildConfigField "boolean", "LOG_DEBUG", "false"
+//
+//            minifyEnabled false
+//            debuggable false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.release
+//        }
+
+    }
+
+
+    //设置加载jni文件
+//    sourceSets {
+//        main {
+//            jniLibs.srcDirs = ['src/main/jniLib/']
+//            jni.srcDirs = ['src/main/jni/']
+//        }
+//    }
+
+    //渠道包
+//    productFlavors {
+//        peanut {
+//            manifestPlaceholders = [CHANNEL_VALUE: "peanut"]
+//        }
+//        huawei {
+//            manifestPlaceholders = [CHANNEL_VALUE: "huawei"]
+//        }
+//        xiaomi {
+//            manifestPlaceholders = [CHANNEL_VALUE: "xiaomi"]
+//        }
+//        yyb360 {
+//            manifestPlaceholders = [CHANNEL_VALUE: "yyb360"]
+//        }
+//        baidu {
+//            manifestPlaceholders = [CHANNEL_VALUE: "baidu"]
+//        }
+//        tencent {
+//            manifestPlaceholders = [CHANNEL_VALUE: "tencent"]
+//        }
+//        ali91 {
+//            manifestPlaceholders = [CHANNEL_VALUE: "ali91"]
+//        }
+//
+//        oppo {
+//            manifestPlaceholders = [CHANNEL_VALUE: "oppo"]
+//        }
+//
+//        vivo {
+//            manifestPlaceholders = [CHANNEL_VALUE: "vivo"]
+//        }
+//
+//        meizu {
+//            manifestPlaceholders = [CHANNEL_VALUE: "meizu"]
+//        }
+//
+//    }
 
 }
 
