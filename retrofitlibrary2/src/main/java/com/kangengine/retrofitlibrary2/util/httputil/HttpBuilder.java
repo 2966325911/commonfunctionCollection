@@ -15,7 +15,9 @@ import com.kangengine.retrofitlibrary2.util.httputil.utils.WriteFileUtil;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 ;
@@ -297,7 +299,13 @@ public class HttpBuilder {
         });
     }
 
-    public void put(String path) {
+
+    /**
+     * 上传单个图片
+     * @param path 图片路径
+     * @param serverName 在服务器所对应的name eg；avatar
+     */
+    public void put(String path,String serverName) {
         if (!allready()) {
             return;
         }
@@ -306,8 +314,8 @@ public class HttpBuilder {
         File uploadfile = new File(path);
         // 创建 RequestBody，用于封装 请求RequestBody
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpg"), uploadfile);
-        // MultipartBody.Part 和后端约定好Key，这里的partName是用image
-        MultipartBody.Part body = MultipartBody.Part.createFormData("avatar", uploadfile.getName(), requestFile);
+        // MultipartBody.Part 和后端约定好Key，这里的partName是用avatar
+        MultipartBody.Part body = MultipartBody.Part.createFormData(serverName, uploadfile.getName(), requestFile);
 
         Call call = HttpUtil.getService().put(checkUrl(this.url), body, checkHeaders(headers));
 
@@ -348,6 +356,82 @@ public class HttpBuilder {
 //        if(errorresponse != null && errorresponse.getSuccessCode() == 2001
 //                && !"com.newservice.peanut_android.activity.LoginActivity".equals(myActivity.getComponentName().getClassName())) {
 //        }
+    }
+
+    /**
+     * 上传多张图片
+     */
+    public void putMultiFile(List<MultipartBody.Part> parts){
+        if (!allready()) {
+            return;
+        }
+        addHeader();
+
+
+        Call call = HttpUtil.getService().putMulti(checkUrl(this.url), parts, checkHeaders(headers));
+
+        putCall(tag, url, call);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if ((response.code() == 200) || (response.code() == 201)) {
+                    mSuccessCallBack.Success(response.toString());
+                } else {
+                    try {
+                        String message = response.errorBody().string();
+                        mErrorCallBack.Error(message, Constant.MESSAGE_RESPONSE);
+                        errorCodeProcess(message);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (tag != null) {
+                    HttpUtil.removeCall(url);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
+                mErrorCallBack.Error(message(t.getMessage()), Constant.MESSAGE_FAILURE);
+                if (tag != null) {
+                    HttpUtil.removeCall(url);
+                }
+            }
+        });
+    }
+
+
+    /**
+     * 上传多张图片，如果只传文字或者只传图片的话，其中一个可以直接传入null，
+     * @param files 构造图片的多个file
+     * @param textParams 上传文字的信息
+     * @return
+     */
+    public static List<MultipartBody.Part> fileToMultipartBodyParts(List<File> files,Map<String,String> textParams) {
+        if(files == null && textParams == null){
+            return null;
+        }
+        List<MultipartBody.Part> parts = null;
+        if(files != null && files.size() > 0) {
+            parts = new ArrayList<>(files.size());
+            for(int i = 0 ; i < files.size();i++){
+                RequestBody requestBody = RequestBody.create(MediaType.parse("image/png"),files.get(i));
+                MultipartBody.Part part = MultipartBody.Part.createFormData("file"+i,files.get(i).getName(),requestBody);
+                parts.add(part);
+            }
+        } else {
+            Log.d(TAG,"file is null or file.size = 0");
+        }
+
+        if(textParams != null && textParams.size() > 0) {
+            MultipartBody.Part param1 = MultipartBody.Part.createFormData("key",textParams.get("key"));
+            parts.add(param1);
+            //依次添加所需要的文字信息
+        } else {
+            Log.d(TAG,"textParams is null or textParams.size = 0");
+        }
+        return parts;
     }
 
     public Observable<ResponseBody> Obdownload() {

@@ -1,5 +1,6 @@
 package com.kangengine.retrofitlibrary2.util.httputil;
 
+import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -40,6 +41,17 @@ public interface RetrofitHttpService {
     @Multipart
     @PUT()
     Call<ResponseBody> put(@Url String url, @Part MultipartBody.Part file, @HeaderMap Map<String, String> headers);
+
+    /**
+     * 上传多文件
+     * @param url
+     * @param parts
+     * @param headers
+     * @return
+     */
+    @Multipart
+    @PUT
+    Call<ResponseBody> putMulti(@Url String url, @Part List<MultipartBody.Part> parts,@HeaderMap Map<String, String> headers);
 
     @FormUrlEncoded
     @PUT

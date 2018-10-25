@@ -23,7 +23,11 @@ import com.kangengine.retrofitlibrary2.util.httputil.interfaces.Error;
 import com.kangengine.retrofitlibrary2.util.httputil.interfaces.Progress;
 import com.kangengine.retrofitlibrary2.util.httputil.interfaces.Success;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
+import okhttp3.MultipartBody;
 
 
 /**
@@ -164,7 +168,7 @@ public class ZhongwenzhuanPinyinActivity extends BaseActivity {
 
                     }
                 })
-                .put(file_path);
+                .put(file_path,"avatar");
     }
 
     /**
@@ -194,6 +198,40 @@ public class ZhongwenzhuanPinyinActivity extends BaseActivity {
                 .get();
     }
 
+
+    /**
+     * put上传多文件数据 未测试
+     */
+    private void uploadMultiFile(){
+        List<File> files = new ArrayList<>();
+        for(int i = 0 ; i < 10;i++){
+            files.add(new File(filePath+"/"+i+"png"));
+        }
+
+        List<MultipartBody.Part> parts = HttpBuilder.fileToMultipartBodyParts(files,null);
+
+        new HttpUtil.SingletonBuilder(getApplicationContext(), "baseurl")
+                .build();
+
+        new HttpBuilder(getApplicationContext(), "具体的请求地址")
+                .setShow_progressbar(true)
+                .success(new Success() {
+                    @Override
+                    public void Success(String Strings) {
+                        Log.d(TAG,Strings);
+
+                        BaseModel model = new BaseModel(Strings);
+                        if(model != null) {
+                            if(model.success) {
+                                //TODO 请求成功处理逻辑
+                            } else {
+
+                            }
+                        }
+                    }
+                } )
+                .putMultiFile(parts);
+    }
 
 
 }
