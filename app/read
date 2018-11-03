@@ -288,3 +288,38 @@ java多线程---锁优化
 3 锁中尽量不要再包含锁（如果有可能导致死锁）
 4 将锁私有化，在内部管理锁
 5 进行适当的锁分解
+
+设计模式总共有23种，总体分为三大类：创建型，结构型，行为型模式
+创建型模式 ： 关注行为对象的创建，同时隐藏创建逻辑,5种，包括：工厂模式，抽象工厂模式，单例模式，建造者模式，原型模式
+结构型模式：关注类和对象之间的组合，8种 包括：适配器，过滤型，装饰，享元，代理，外观，组合，桥接
+行为型模式:关注对象之间的通信，包括：责任链，命令，中介，观察者，状态，策略，模板，备忘录，迭代器，解释器，访问者
+
+view分发机制 ：down事件 dispatchTouchEvent-->onTouch-->onTouchEvent-->onClick
+viewGroup onInterceptToucheEvent return false 默认分发给view，如果拦截 onInterceptTouchEvent return true
+后ViewGroup将走自己的触摸事件逻辑
+
+ Java 中 Class.forName()、Class.class、getClass() 三者的理解
+Class.forName()形式会装入类并做类的静态初始化，返回Class对象
+Class.class会使JVM将使用类装载器将类装入内存（前提是类还没有装入内存），不做类的初始化工作，
+返回Class对象.getClass()对类进行静态初始化，非静态初始化，返回引用运行时真正所指的对象（因为子
+对象的引用可能会赋给对象的引用变量中）所属的类的Class对象
+
+图片占据内存大小
+我们在电脑上看到的 png 格式或者 jpg 格式的图片，png(jpg) 只是这张图片的容器，它们是经过相对应的压缩算法将原图每个
+像素点信息转换用另一种数据格式表示，以此达到压缩目的，减少图片文件大小，Bitmap 的大小取决于像素点的数据格式以及分辨率两者了。
+图片占用内存：分辨率 * 每个像素点的大小。
+大部分场景可以通过 Bitmap的getByteCount() 方法获取当前图片所占用内存的大小
+系统在加载res下的资源图片时，会转换，规则：
+新图的高度(height) = 原图高度(height)*（设备的dpi/目录对应的dpi）
+新图的宽度(width) = 原图宽度（width）*（设备的dpi/目录对应的dpi）
+单独从图片本身考虑优化方向：降低分辨率（BitmapFactory.Options.inSampleSize），减少每个像素的大小（将系统自带的ARGB—8888转为RGB—656）
+
+
+java中打印Array数组内存
+1 使用循环打印 2 Array.toString() 3 jDK8的java.uitl.Arrays.stream()  Arrays.stream([]).forEach(System.out : println)
+4 Arrays.deepToString() 5 JDK8 的Stream.flatMap()  6 String.join(",", infos)
+
+RecyclerView滑动判断是否滑到底部或者顶部
+
+RecyclerView.canScrollVertically(1)的值表示是否能向上滚动，false表示已经滚动到底部
+RecyclerView.canScrollVertically(-1)的值表示是否能向下滚动，false表示已经滚动到顶部

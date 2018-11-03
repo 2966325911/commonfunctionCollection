@@ -36,13 +36,13 @@
 
             <Button
                 style="@style/btnStyle"
-                android:text="@string/permission"
+                android:text="@string/floating_window"
                 android:onClick="toFloatActivity"
                 />
 
             <Button
                 style="@style/btnStyle"
-                android:text="@string/floating_window"
+                android:text="@string/custom_switch"
                 android:onClick="toCustomView"
                 />
 

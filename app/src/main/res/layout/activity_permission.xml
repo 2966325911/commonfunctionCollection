@@ -26,4 +26,12 @@
         android:layout_height="wrap_content"
         android:text="用自定义的注解去获取权限"
         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试Joor反射"
+        android:onClick="reflexJoorTest"
+        />
+
 </LinearLayout>

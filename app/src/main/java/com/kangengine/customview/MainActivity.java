@@ -218,6 +218,10 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
         toNextActivity(BtnOkAnimationActivity.class,null);
     }
 
+    /**
+     * 录制视频
+     * @param view
+     */
     public void toVideoRecordActivity(View view) {
         toNextActivity(VideoRecordActivity.class,null);
     }
@@ -238,6 +242,10 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
         toNextActivity(BackgroundViewActivity.class,null);
     }
 
+    /**
+     *  切换语言
+     * @param view
+     */
     public void switchLanguage(View view) {
         if(getLanguageZh()) {
             type = ENGLISH;

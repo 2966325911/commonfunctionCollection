@@ -159,4 +159,10 @@ dependencies {
     //AssetFile - 像File一样操作Asset资源
     implementation 'com.dyhdyh.io:asset-file:1.0.2'
     implementation project(':retrofitlibrary2')
+    //java反射的分装joor
+    implementation 'org.jooq:joor-java-8:0.9.9'
+
+    implementation 'com.yanzhenjie:permission:2.0.0-rc12'
+
+
 }

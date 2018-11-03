@@ -250,6 +250,7 @@
     <string name="flow_layout">进入流式布局界面</string>
     <string name="shopping">进入购物车界面</string>
     <string name="permission">进入权限申请界面</string>
+    <string name="custom_switch">自定义开关按钮</string>
     <string name="floating_window">进入悬浮窗口页面</string>
 
 </resources>

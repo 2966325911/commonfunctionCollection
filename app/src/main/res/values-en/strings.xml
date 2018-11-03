@@ -251,5 +251,7 @@
     <string name="shopping">Enter the shopping cart interface</string>
     <string name="permission">Access permission application interface</string>
     <string name="floating_window">Enter the hover window page</string>
+    <string name="custom_switch">Custom switch view</string>
+
 
 </resources>
