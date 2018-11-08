@@ -13,10 +13,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RemoteViews;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.MainActivity;
 import com.kangengine.customview.R;
 
-public class NotificationActivity extends AppCompatActivity {
+public class NotificationActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

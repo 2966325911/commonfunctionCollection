@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.widget.NewCircleViewLayout;
 import com.kangengine.customview.adapter.CircleMenuAdapter;
@@ -16,7 +17,7 @@ import java.util.List;
 /**
  * @author Administrator
  */
-public class NewMenuLayoutActivity extends AppCompatActivity {
+public class NewMenuLayoutActivity extends BaseActivity {
 
 
     private String[] mItemTexts = new String[] { "安全中心 ", "特色服务", "投资理财",

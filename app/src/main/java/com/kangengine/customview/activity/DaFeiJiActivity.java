@@ -8,9 +8,10 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Window;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.widget.DaFeiJiGameView;
 
-public class DaFeiJiActivity extends AppCompatActivity  {
+public class DaFeiJiActivity extends BaseActivity {
 
     private DaFeiJiGameView daFeiJiGameView;
     @Override

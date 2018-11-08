@@ -3,10 +3,11 @@ package com.kangengine.customview.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 
 
-public class CustomActivity extends AppCompatActivity {
+public class CustomActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -10,13 +10,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.service.FloatButtonService;
 import com.kangengine.customview.service.ImageSettingService;
 import com.kangengine.customview.service.MediaPlayService;
 
 
-public class FloatActivity extends AppCompatActivity {
+public class FloatActivity extends BaseActivity {
 
     private static final int REQUEST_CODE = 0x11;
     private int mTouchSlop;

@@ -3,10 +3,11 @@ package com.kangengine.customview.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.widget.CustomHeadView;
 
-public class ScratchCardActivity extends AppCompatActivity {
+public class ScratchCardActivity extends BaseActivity {
 
     private CustomHeadView one,two,three;
     @Override

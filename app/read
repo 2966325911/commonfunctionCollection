@@ -323,3 +323,9 @@ RecyclerView滑动判断是否滑到底部或者顶部
 
 RecyclerView.canScrollVertically(1)的值表示是否能向上滚动，false表示已经滚动到底部
 RecyclerView.canScrollVertically(-1)的值表示是否能向下滚动，false表示已经滚动到顶部
+
+HashTable 线程安全  底层实现 ： 数组 +  链表
+HashMap 线程不安全  底层实现 : 数组 + 链表 允许null值和null键，但不提倡使用
+它们添加、删除、获取元素时都是先计算hash，根据hash和table.length计算index也就是table数据的下标，
+然后进行相应操作
+

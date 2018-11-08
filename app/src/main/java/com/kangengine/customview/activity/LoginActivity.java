@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.fragment.FingerprintDialogFragment;
 
@@ -19,7 +20,7 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private static final String DEFAULT_KEY_NAME = "default_key";
 

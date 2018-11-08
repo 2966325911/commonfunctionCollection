@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.widget.CircleClockView;
 import com.kangengine.customview.widget.SpannableFoldTextView;
 
@@ -15,7 +16,7 @@ import com.kangengine.customview.widget.SpannableFoldTextView;
  * 2.插件中的生命周期如何管理
  * 3.插件资源和宿主资源冲突怎么办
  */
-public class UiTestActivity extends AppCompatActivity {
+public class UiTestActivity extends BaseActivity {
 
     private Button btn;
     private TextView tvUiTest;

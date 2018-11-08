@@ -9,9 +9,10 @@ import android.transition.Fade;
 import android.transition.Slide;
 import android.view.Window;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 
-public class TransitionsActivity extends AppCompatActivity {
+public class TransitionsActivity extends BaseActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override

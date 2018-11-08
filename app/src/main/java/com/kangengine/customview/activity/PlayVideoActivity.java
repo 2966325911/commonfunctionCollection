@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.Toast;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.videocompress.CompressListener;
 import com.kangengine.customview.videocompress.Compressor;
@@ -19,7 +20,7 @@ import com.kangengine.customview.widget.MyVideoView;
 
 import java.io.File;
 
-public class PlayVideoActivity extends AppCompatActivity {
+public class PlayVideoActivity extends BaseActivity {
 
     private static final String TAG = PlayVideoActivity.class.getSimpleName();
     private MyVideoView videoView;

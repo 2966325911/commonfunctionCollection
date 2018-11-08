@@ -19,6 +19,7 @@ import android.view.View;
 
 import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
 import com.kangengine.customview.activity.BackgroundViewActivity;
+import com.kangengine.customview.activity.BottomBarActivity;
 import com.kangengine.customview.activity.BtnOkAnimationActivity;
 import com.kangengine.customview.activity.CircleCountdownTimeActivity;
 import com.kangengine.customview.activity.CircleMenuLayoutActivity;
@@ -265,5 +266,9 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
 
     public void toJniCompressImg(View view) {
         toNextActivity(JniCompressImgActivity.class,null);
+    }
+
+    public void toBottomBar(View view) {
+        toNextActivity(BottomBarActivity.class,null);
     }
 }

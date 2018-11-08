@@ -17,10 +17,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.kangengine.customview.BaseActivity;
+
 /**
  *  Xfermode官方demo
  */
-public class XfermodesActivity extends AppCompatActivity {
+public class XfermodesActivity extends BaseActivity {
 
 
     @Override

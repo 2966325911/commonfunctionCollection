@@ -4,10 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.widget.AnimationButtonOk;
 
-public class BtnOkAnimationActivity extends AppCompatActivity {
+public class BtnOkAnimationActivity extends BaseActivity {
 
     private AnimationButtonOk animationOk;
     @Override

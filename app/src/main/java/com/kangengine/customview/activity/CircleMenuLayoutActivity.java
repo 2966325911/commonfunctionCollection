@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.widget.CircleMenuLayout;
 
@@ -13,7 +14,7 @@ import com.kangengine.customview.widget.CircleMenuLayout;
  * @author Vic
  * desc : 圆形菜单
  */
-public class CircleMenuLayoutActivity extends AppCompatActivity {
+public class CircleMenuLayoutActivity extends BaseActivity {
 
     private CircleMenuLayout mCircleMenuLayout;
 

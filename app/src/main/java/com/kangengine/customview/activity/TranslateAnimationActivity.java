@@ -13,12 +13,13 @@ import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 
 /**
  * Activity的过渡动画
  */
-public class TranslateAnimationActivity extends AppCompatActivity {
+public class TranslateAnimationActivity extends BaseActivity {
 
     private Intent intent;
     @Override

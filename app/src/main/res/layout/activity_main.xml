@@ -57,10 +57,6 @@
                 android:text="圆形菜单"
                 />
 
-            <com.kangengine.customview.widget.SwitchView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
             <Button
                 style="@style/btnStyle"
                 android:text="自动化UI测试页面"
@@ -172,6 +168,11 @@ k
                 style="@style/btnStyle"
                 android:onClick="toJniCompressImg"
                 android:text="利用jni对图片进行压缩" />
+
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toBottomBar"
+                android:text="底部tabbar及角标"  />
 
 
         </LinearLayout>

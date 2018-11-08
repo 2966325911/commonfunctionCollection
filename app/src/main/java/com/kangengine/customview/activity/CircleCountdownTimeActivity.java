@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.widget.CircleCountDownView;
 import com.kangengine.customview.widget.CircleCountDownView1;
@@ -16,7 +17,7 @@ import com.kangengine.customview.widget.CircleCountDownView1;
  * @author Vic
  * desc 圆形倒计时 add tint 着色器 和 clipping 裁剪
  */
-public class CircleCountdownTimeActivity extends AppCompatActivity {
+public class CircleCountdownTimeActivity extends BaseActivity {
 
     private CircleCountDownView mCountdown;
     private View v1;

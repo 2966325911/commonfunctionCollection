@@ -13,10 +13,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 
 
-public class CoordniatorLayoutActivity extends AppCompatActivity implements View.OnTouchListener {
+public class CoordniatorLayoutActivity extends BaseActivity implements View.OnTouchListener {
     private static final String TAG = CoordniatorLayoutActivity.class.getSimpleName();
     private TextView textView;
     private int screenWidth;

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.widget.RecordVideo;
 
@@ -16,7 +17,7 @@ import com.kangengine.customview.widget.RecordVideo;
  * @author Vic
  * 视频录制及播放
  */
-public class VideoRecordActivity extends AppCompatActivity implements RecordVideo.OnRecordFinishListener {
+public class VideoRecordActivity extends BaseActivity implements RecordVideo.OnRecordFinishListener {
 
 
     private static final String TAG = VideoRecordActivity.class.getSimpleName();

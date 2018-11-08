@@ -253,5 +253,10 @@
     <string name="floating_window">Enter the hover window page</string>
     <string name="custom_switch">Custom switch view</string>
 
+    <string name="home_nav_index">homepage</string>
+    <string name="home_nav_found">found</string>
+    <string name="home_nav_message">message</string>
+    <string name="home_nav_me">me</string>
+
 
 </resources>

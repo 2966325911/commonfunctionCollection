@@ -4,10 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.kangengine.customview.BaseActivity;
 import com.kangengine.customview.R;
 import com.kangengine.customview.widget.SurfaceViewTemplate;
 
-public class SurfaceViewActivity extends AppCompatActivity {
+public class SurfaceViewActivity extends BaseActivity {
 
     private SurfaceViewTemplate surfaceViewTemplate;
     @Override
