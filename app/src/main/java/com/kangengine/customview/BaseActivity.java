@@ -8,8 +8,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.github.promeg.pinyinhelper.Pinyin;
+import com.gyf.barlibrary.BarHide;
+import com.gyf.barlibrary.ImmersionBar;
+import com.gyf.barlibrary.OnKeyboardListener;
 import com.kangengine.customview.util.SharedPreferencesUtils;
 
 import java.util.Locale;
@@ -23,14 +27,80 @@ import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper;
  */
 public class BaseActivity extends AppCompatActivity implements BGASwipeBackHelper.Delegate {
 
+    /**
+     * 侧滑
+     */
     private BGASwipeBackHelper mSwipeBackHelper;
+    /**
+     * 沉浸式状态栏
+     */
+    private ImmersionBar mImmersionBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         initSwipeBackFinish();
         super.onCreate(savedInstanceState);
+        initImmersionBar();
     }
 
+    /**
+     * 初始化沉浸式状态栏 使用时style theme改为NoActionBar，然后自定义ActionBar或者
+     * 运用git上封装好的https://github.com/getActivity/TitleBar 其次还有吐司工具类，
+     * 权限封装框架https://github.com/getActivity/XXPermissions
+     */
+    private void initImmersionBar() {
+        //基础用法
+//        mImmersionBar = ImmersionBar.with(this);
+//        mImmersionBar.statusBarDarkFont(true)
+//                .supportActionBar(true)
+//                .fullScreen(true)
+//                .statusBarColor(R.color.colorAccent)
+//                .fitsSystemWindows(true);
+//
+//        mImmersionBar.init();
+//        高级用法
+//        ImmersionBar.with(this)
+//                .transparentStatusBar()  //透明状态栏，不写默认透明色
+//                .transparentNavigationBar()  //透明导航栏，不写默认黑色(设置此方法，fullScreen()方法自动为true)
+//                .transparentBar()             //透明状态栏和导航栏，不写默认状态栏为透明色，导航栏为黑色（设置此方法，fullScreen()方法自动为true）
+//                .statusBarColor(R.color.colorPrimary)     //状态栏颜色，不写默认透明色
+//                .navigationBarColor(R.color.colorPrimary) //导航栏颜色，不写默认黑色
+//                .barColor(R.color.colorPrimary)  //同时自定义状态栏和导航栏颜色，不写默认状态栏为透明色，导航栏为黑色
+//                .statusBarAlpha(0.3f)  //状态栏透明度，不写默认0.0f
+//                .navigationBarAlpha(0.4f)  //导航栏透明度，不写默认0.0F
+//                .barAlpha(0.3f)  //状态栏和导航栏透明度，不写默认0.0f
+//                .statusBarDarkFont(true)   //状态栏字
+// 体是深色，不写默认为亮色
+//                .flymeOSStatusBarFontColor(R.color.btn3)  //修改flyme OS状态栏字体颜色
+//                .fullScreen(true)      //有导航栏的情况下，activity全屏显示，也就是activity最下面被导航栏覆盖，不写默认非全屏
+//                .hideBar(BarHide.FLAG_HIDE_BAR)  //隐藏状态栏或导航栏或两者，不写默认不隐藏
+//                .addViewSupportTransformColor(toolbar)  //设置支持view变色，可以添加多个view，不指定颜色，默认和状态栏同色，还有两个重载方法
+//                .titleBar(view)    //解决状态栏和布局重叠问题，任选其一
+//                .titleBarMarginTop(view)     //解决状态栏和布局重叠问题，任选其一
+//                .statusBarView(view)  //解决状态栏和布局重叠问题，任选其一
+//                .fitsSystemWindows(true)    //解决状态栏和布局重叠问题，任选其一，默认为false，当为true时一定要指定statusBarColor()，不然状态栏为透明色，还有一些重载方法
+//                .supportActionBar(true) //支持ActionBar使用
+//                .statusBarColorTransform(R.color.orange)  //状态栏变色后的颜色
+//                .navigationBarColorTransform(R.color.orange) //导航栏变色后的颜色
+//                .barColorTransform(R.color.orange)  //状态栏和导航栏变色后的颜色
+//                .removeSupportView(toolbar)  //移除指定view支持
+//                .removeSupportAllView() //移除全部view支持
+//                .navigationBarEnable(true)   //是否可以修改导航栏颜色，默认为true
+//                .navigationBarWithKitkatEnable(true)  //是否可以修改安卓4.4和emui3.1手机导航栏颜色，默认为true
+//                .fixMarginAtBottom(true)   //已过时，当xml里使用android:fitsSystemWindows="true"属性时,解决4.4和emui3.1手机底部有时会出现多余空白的问题，默认为false，非必须
+//                .addTag("tag")  //给以上设置的参数打标记
+//                .getTag("tag")  //根据tag获得沉浸式参数
+//                .reset()  //重置所以沉浸式参数
+//                .keyboardEnable(true)  //解决软键盘与底部输入框冲突问题，默认为false，还有一个重载方法，可以指定软键盘mode
+//                .keyboardMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)  //单独指定软键盘模式
+//                .setOnKeyboardListener(new OnKeyboardListener() {    //软键盘监听回调
+//                    @Override
+//                    public void onKeyboardChange(boolean isPopup, int keyboardHeight) {
+//                        LogUtils.e(isPopup);  //isPopup为true，软键盘弹出，为false，软键盘关闭
+//                    }
+//                })
+//                .init();  //必须调用方可沉浸式
+    }
 
 
     public void toNextActivity(Class<?> clazz,Bundle bundle){
@@ -158,6 +228,15 @@ public class BaseActivity extends AppCompatActivity implements BGASwipeBackHelpe
 
         mSwipeBackHelper.backward();
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //必须调用该方法，防止内存泄漏，不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态
+        if(mImmersionBar != null) {
+            mImmersionBar.destroy();
+        }
     }
 }
 
