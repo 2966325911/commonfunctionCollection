@@ -1,8 +1,13 @@
 package com.kangengine.customview;
 
+import android.app.AppOpsManager;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +21,9 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.gyf.barlibrary.OnKeyboardListener;
 import com.kangengine.customview.util.SharedPreferencesUtils;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Locale;
 
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper;
@@ -236,6 +244,35 @@ public class BaseActivity extends AppCompatActivity implements BGASwipeBackHelpe
         //必须调用该方法，防止内存泄漏，不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态
         if(mImmersionBar != null) {
             mImmersionBar.destroy();
+        }
+    }
+
+    /**
+     * 检查通知权限是否开启
+     * @param context
+     * @return
+     */
+    public static boolean isNotificationEnabled(Context context) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return ((NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE)).areNotificationsEnabled();
+        } else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            AppOpsManager appOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
+            ApplicationInfo appInfo = context.getApplicationInfo();
+            String pkg = context.getApplicationContext().getPackageName();
+            int uid = appInfo.uid;
+
+            try {
+                Class<?> appOpsClass = Class.forName(AppOpsManager.class.getName());
+                Method checkOpNoThrowMethod = appOpsClass.getMethod("checkOpNoThrow",Integer.TYPE,Integer.TYPE,String.class);
+                Field opPostNotificationValue = appOpsClass.getDeclaredField("OP_POST_NOTIFICATION");
+                int value = (int) opPostNotificationValue.get(Integer.class);
+                return (Integer)checkOpNoThrowMethod.invoke(appOps,value,uid,pkg) == 0;
+            } catch (ClassNotFoundException | NoSuchMethodException | NoSuchFieldException
+                    | IllegalAccessException | InvocationTargetException e) {
+               return true;
+            }
+        } else {
+            return true;
         }
     }
 }

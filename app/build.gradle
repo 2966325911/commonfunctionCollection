@@ -171,4 +171,7 @@ dependencies {
     implementation 'com.gyf.immersionbar:immersionbar:2.3.2-beta02'
     //日志打印 https://github.com/orhanobut/logger
     implementation 'com.orhanobut:logger:2.2.0'
+    //ToastUtil 日志打印，解决问题，全版本适配，解决华为等手机关闭通知权限后toast不显示问题
+    implementation 'com.hjq:toast:3.0'
+
 }

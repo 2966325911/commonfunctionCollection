@@ -1,23 +1,18 @@
 package com.kangengine.customview;
 
 
-import android.app.IntentService;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LifecycleRegistry;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
 
 
-import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
 import com.kangengine.customview.activity.BackgroundViewActivity;
 import com.kangengine.customview.activity.BottomBarActivity;
 import com.kangengine.customview.activity.BtnOkAnimationActivity;
@@ -45,9 +40,6 @@ import com.kangengine.customview.activity.PathAcitivty;
 import com.kangengine.customview.activity.PicPasswordActivity;
 import com.kangengine.customview.activity.PreferenceActivity;
 import com.kangengine.customview.activity.ScratchCardActivity;
-import com.kangengine.customview.util.OnResultManager;
-
-import java.util.Locale;
 
 import me.ele.uetool.UETool;
 
@@ -270,5 +262,9 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
 
     public void toBottomBar(View view) {
         toNextActivity(BottomBarActivity.class,null);
+    }
+
+    public void toastShow(View view) {
+        toNextActivity(ToastAtivity.class,null);
     }
 }

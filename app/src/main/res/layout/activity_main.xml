@@ -175,6 +175,12 @@ k
                 android:text="底部tabbar及角标"  />
 
 
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toastShow"
+                android:text="三方ToastUtil显示"  />
+
+
         </LinearLayout>
     </ScrollView>
 

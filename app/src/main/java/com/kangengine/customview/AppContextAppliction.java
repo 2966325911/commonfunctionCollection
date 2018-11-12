@@ -3,6 +3,8 @@ package com.kangengine.customview;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+
+import com.hjq.toast.ToastUtils;
 import com.kangengine.customview.util.crash.CrashHandler;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
@@ -30,6 +32,7 @@ public class AppContextAppliction extends Application {
 //        } else if(mode == Configuration.UI_MODE_NIGHT_NO) {
 //            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 //        }
+        ToastUtils.init(this);
         /**
          * 必须在 Application 的 onCreate 方法中执行 BGASwipeBackHelper.init 来初始化滑动返回
          * 第一个参数：应用程序上下文
