@@ -2,9 +2,12 @@ package com.kangengine.customview;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.os.Bundle;
 
+import com.danikula.videocache.HttpProxyCacheServer;
 import com.hjq.toast.ToastUtils;
+import com.kangengine.customview.util.VideoCacheUtil;
 import com.kangengine.customview.util.crash.CrashHandler;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
@@ -97,6 +100,20 @@ public class AppContextAppliction extends Application {
 
             }
         });
+    }
+
+    private HttpProxyCacheServer proxy;
+
+    public static HttpProxyCacheServer getProxy(Context context) {
+        AppContextAppliction app = (AppContextAppliction) context.getApplicationContext();
+        return app.proxy == null ? (app.proxy = app.newProxy()) : app.proxy;
+    }
+
+    private HttpProxyCacheServer newProxy() {
+        return new HttpProxyCacheServer.Builder(this)
+                .cacheDirectory(VideoCacheUtil.getVideoCacheDir(this))
+                .maxCacheSize(200*1024*1024)
+                .build();
     }
 
     public static AppContextAppliction getInstance() {

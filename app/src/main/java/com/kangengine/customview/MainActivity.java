@@ -25,6 +25,7 @@ import com.kangengine.customview.activity.ShaderActivity;
 import com.kangengine.customview.activity.SurfaceViewActivity;
 import com.kangengine.customview.activity.TranslateAnimationActivity;
 import com.kangengine.customview.activity.UiTestActivity;
+import com.kangengine.customview.activity.VideoCacheActivity;
 import com.kangengine.customview.activity.VideoRecordActivity;
 import com.kangengine.customview.activity.XfermodesActivity;
 import com.kangengine.customview.activity.ZhongwenzhuanPinyinActivity;
@@ -266,5 +267,9 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
 
     public void toastShow(View view) {
         toNextActivity(ToastAtivity.class,null);
+    }
+
+    public void videoCache(View view) {
+        toNextActivity(VideoCacheActivity.class,null);
     }
 }

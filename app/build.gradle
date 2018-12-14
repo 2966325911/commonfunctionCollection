@@ -176,5 +176,7 @@ dependencies {
     implementation 'com.orhanobut:logger:2.2.0'
     //ToastUtil 日志打印，解决问题，全版本适配，解决华为等手机关闭通知权限后toast不显示问题
     implementation 'com.hjq:toast:3.0'
+    //视频缓存 边播放边缓存
+    compile 'com.danikula:videocache:2.7.1'
 
 }

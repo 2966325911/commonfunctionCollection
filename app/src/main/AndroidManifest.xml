@@ -176,9 +176,10 @@
         <activity
             android:name=".activity.BottomBarActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".ToastAtivity"
-            android:parentActivityName=".MainActivity"
-            />
+        <activity
+            android:name=".ToastAtivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".activity.VideoCacheActivity"></activity>
     </application>
 
 </manifest>
