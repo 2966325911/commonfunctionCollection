@@ -154,7 +154,6 @@
         <activity
             android:name=".activity.VideoRecordActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".activity.PlayVideoActivity" />
         <activity
             android:name=".activity.CircleCountdownTimeActivity"
             android:parentActivityName=".MainActivity" />

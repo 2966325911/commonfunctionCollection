@@ -118,7 +118,7 @@
         android:id="@+id/iv_goods_reduce"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_alignTop="@id/iv_goods_add"
+        android:layout_alignTop="@+id/iv_goods_add"
         android:layout_marginLeft="37dp"
         android:layout_toLeftOf="@id/tv_goods_count"
         android:src="@mipmap/icon_goods_reduce"

@@ -105,11 +105,11 @@ public class VideoRecordActivity extends BaseActivity implements RecordVideo.OnR
 
     private void finishActivity() {
         if (isFinish) {
-            // 返回到播放页面
-            Intent intent = new Intent(this, PlayVideoActivity.class);
-            Log.d("TAG", mRecorderView.getRecordFile().getAbsolutePath());
-            intent.putExtra("path", mRecorderView.getRecordFile().getAbsolutePath());
-            startActivity(intent);
+//            // 返回到播放页面
+//            Intent intent = new Intent(this, PlayVideoActivity.class);
+//            Log.d("TAG", mRecorderView.getRecordFile().getAbsolutePath());
+//            intent.putExtra("path", mRecorderView.getRecordFile().getAbsolutePath());
+//            startActivity(intent);
         }
         // isFinish = false;
         finish();
