@@ -365,4 +365,50 @@ GPS定位优缺点
 Wifi定位:
 WiFi定位的原理是利用每台路由器独有的Mac地址对用户实现定位
 
+插件化
+1、加载插件：插件APK通过网络下载下来，用DexClassLoader加载插件APK中的类文件，然后将DexClassLoader中的
+Element数组和宿主应用的PathClassLoader的Element数组合并再设置回PathClassLoader，
+完成插件APK中类的加载
+2、HooK启动流程
+插件APK的Activity未曾在AndroidManifest中注册，需要有一个占坑的SubActivity,在启动插件APK的Activity的时候
+利用占坑SubActivity绕过验证。在AMS处理完相应验证通知我们ActivityThread创建Activity的时候在替换为PluginAcitivity
+AMS创建Activity的通知会先发送到ApplicationThread，然后ApplicationThread会通过Handler去执行相应的逻辑，
+在消息分发的时候Handler中会调用handleMessage，在调用handleMessage的之前会通过dispatchMessage分发事件，
+可以hook其中的mCallback接口，覆写handleMessage这个方法，然后根据需求拦截改变Message消息，
+最后将新的Callback设置给Handler即可
+3、启动的是SubActivity，管理插件的生命周期，hook启动后PluginAcitivty会有自己的生命周期
+4、初始化插件资源
+给插件创建一个Resources，然后插件APK中都通过这个Resource去获取资源，构建AssetManager，调用其中的
+addAssetPath去加载对应路径的资源
 
+PopupWindow没有新建一个Window，而是将View加到DecorView上
+Dialog是新建了一个window，相当于走了一遍Activity中创建window的流程
+
+Activity中展示视图元素通过window来实现，window可以理解为一个容器，盛放着一个个view，用来执行具体的展示工作
+Window 实现了Activity与View的解耦，Activity将视图的全部工作交给Window来处理
+WindowManager支持对多条View链的管理
+Dialog为什么不能使用Application的Context
+Dialog窗口类型为TYPE_APPLICATION与Activity一样，TYPE_APPLICATION要求Token不能为null，
+Application没有AppWindowToken
+
+
+分析ANR 一般是由于主线程阻塞造成的，普通是5s，BroadCastReceiver是10s，则会造成ANR
+ANR分析，一般系统会产生一个traces.txt的文件存放在/data/anr/下，通过adb命令导出分析：一般ANR原因:
+普通阻塞，CPU满负荷，内存泄漏
+
+内存泄漏:
+当应用内部不再需要某个实例后，但是这个对象却仍然被引用，这个情况就叫做内存泄露(Memory Leak)。安卓虚拟机为每一个应用分配一定的内存空间，当内存泄露到达一定的程度就会造成内存溢出。
+
+导致内存泄露常见原因:
+1)静态变量直接或者间接地引用了Activity对象就会造成内存泄露
+2)Activity使用了静态的View(View会持有Activity的对象的引用)
+3)Activity定义了静态View变量???
+4)ImageSpan引用了Activity Context
+5)单例中引用了Activity的Context(需要使用Application的Context)
+6)对于使用了BraodcastReceiver，ContentObserver，File，Cursor，Stream，Bitmap等资源，应该在Activity销毁时及时关闭或者注销，否则这些资源将不会被回收，从而造成内存泄漏。
+7)静态集合保存的对象没有及时消除(不使用的时候置为null)
+8)在Java中,非静态(匿名)内部类会引用外部类对象,而静态内部类不会引用外部类对象
+9)在Activity中,创建了非静态内部类(内部类直接或者间接引用了Activity)的静态成员变量
+10)线程包括AsyncTask的使用,Activity退出后线程还在运行(线程在死循环),并且在线程中使用了Activity或view对象(解决方法:不要直接写死循环,可以设置一个布尔类型的TAG,当activity推出的时候,设置TAG为False)
+11)Handler对象的使用,Activity退出后Handler还是有消息需要处理(解决方法:在退出activity之后,移除消息)
+12)WebView造成的内存泄漏(在onDestory中销毁)
