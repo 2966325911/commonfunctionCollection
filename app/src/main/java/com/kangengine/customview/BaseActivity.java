@@ -15,7 +15,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.github.promeg.pinyinhelper.Pinyin;
+//import com.github.promeg.pinyinhelper.Pinyin;
 import com.gyf.barlibrary.BarHide;
 import com.gyf.barlibrary.ImmersionBar;
 import com.gyf.barlibrary.OnKeyboardListener;
@@ -155,8 +155,9 @@ public class BaseActivity extends AppCompatActivity implements BGASwipeBackHelpe
      * @return
      */
     public static String getPinYin(String content) {
-        String msg = Pinyin.toPinyin(content,"");
-        return msg.toLowerCase();
+//        String msg = Pinyin.toPinyin(content,"");
+//        return msg.toLowerCase();
+        return "";
     }
 
     /**

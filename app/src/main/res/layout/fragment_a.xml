@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="com.kangengine.customview.fragment.AFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AAAAA"
+        />
+    <Button
+        android:id="@+id/a_btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="展示第一个tab的红点"
+        />
+    <Button
+        android:id="@+id/a_btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="展示第二tal的红点数字"
+        />
+    <Button
+        android:id="@+id/a_btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="消除红点"
+        />
+    <Button
+        android:id="@+id/a_btn4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到第三个tab的页面"
+        />
+
+
+</LinearLayout>

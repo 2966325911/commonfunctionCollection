@@ -13,8 +13,10 @@ import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 
 
+import com.kangengine.customview.activity.AutoChangeTextSizeActivity;
 import com.kangengine.customview.activity.BackgroundViewActivity;
 import com.kangengine.customview.activity.BottomBarActivity;
+import com.kangengine.customview.activity.BottomTabActivity;
 import com.kangengine.customview.activity.BtnOkAnimationActivity;
 import com.kangengine.customview.activity.CircleCountdownTimeActivity;
 import com.kangengine.customview.activity.CircleMenuLayoutActivity;
@@ -271,5 +273,13 @@ public class MainActivity extends BaseActivity implements LifecycleOwner {
 
     public void videoCache(View view) {
         toNextActivity(VideoCacheActivity.class,null);
+    }
+
+    public void toAutoChangeTextSize(View view) {
+        toNextActivity(AutoChangeTextSizeActivity.class,null);
+    }
+
+    public void toBottomTabActivity(View view) {
+        toNextActivity(BottomTabActivity.class,null);
     }
 }

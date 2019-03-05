@@ -186,6 +186,19 @@ k
                 android:text="视频播放缓存"  />
 
 
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toAutoChangeTextSize"
+                android:text="自动改变文本大小"
+                />
+
+            <Button
+                style="@style/btnStyle"
+                android:onClick="toBottomTabActivity"
+                android:text="底部状态栏"
+                />
+
+
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

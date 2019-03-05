@@ -149,12 +149,12 @@ dependencies {
     compile 'com.squareup.okio:okio:1.9.0'
 //    compile project(':ffmpegandroid')
     compile 'com.noober.background:core:1.2.3'
-    // TinyPinyin核心包，约80KB
-    compile 'com.github.promeg:tinypinyin:2.0.3'
-    // 可选，适用于Android的中国地区词典
-    compile 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3'
-    // 可选，适用于Java的中国地区词典
-    compile 'com.github.promeg:tinypinyin-lexicons-java-cncity:2.0.3'
+//    // TinyPinyin核心包，约80KB
+//    compile 'com.github.promeg:tinypinyin:2.0.3'
+//    // 可选，适用于Android的中国地区词典
+//    compile 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3'
+//    // 可选，适用于Java的中国地区词典
+//    compile 'com.github.promeg:tinypinyin-lexicons-java-cncity:2.0.3'
     compile project(':lib_jpeg_compress')
     compile project(':retrofitlibrary')
     //gif
@@ -178,5 +178,6 @@ dependencies {
     implementation 'com.hjq:toast:3.0'
     //视频缓存 边播放边缓存
     compile 'com.danikula:videocache:2.7.1'
+    implementation 'com.github.forvv231:EasyNavigation:1.0.2'
 
 }
